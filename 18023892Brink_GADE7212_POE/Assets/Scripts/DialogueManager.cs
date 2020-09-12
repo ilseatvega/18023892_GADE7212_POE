@@ -4,20 +4,18 @@ using UnityEngine;
 
 public class DialogueManager : MonoBehaviour
 {
-    //DLinkedList _testList = new DLinkedList(new Node("why"));
-
-    //void loadDialogue()
-    //{
-    //    _testList.AddNode(new Node("what"), _testList.getActive());
-
-    //}
+    string filePath;
+    int lineNumber;
 
     DoubleLinkList D = new DoubleLinkList();
 
     void Dialogue()
     {
-        D.Addfirst("hello");
-        D.Add("my name is ilse");
+        lineNumber = 1;
+        D.Addfirst(ReadLine());
+
+        lineNumber = 2;
+        D.Add(ReadLine());
 
         foreach (Node item in D)
         {
@@ -25,8 +23,27 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
+    private void Awake()
+    {
+        filePath = Application.persistentDataPath + "\\FirstScenario.txt";
+    }
+
     private void Start()
     {
+        ExternalData.WriteTxt();
+
         Dialogue();
+
+    }
+
+    private string ReadLine()
+    {
+        string lineCont = ExternalData.ReadSpecificLine(filePath, lineNumber);
+
+        if (lineCont != null)
+        {
+            //Debug.Log(lineCont);
+        }
+        return lineCont;
     }
 }
