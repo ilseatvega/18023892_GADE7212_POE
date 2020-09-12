@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class DoubleLinkList : IEnumerable<Node>
 {
+    //https://www.youtube.com/watch?v=N02o3EaNkXk
+
     private Node head;
     public Node First
     {
@@ -43,8 +45,8 @@ public class DoubleLinkList : IEnumerable<Node>
         }
     }
 
-    //addlast
-        public void Add(string data)
+    //-----------------------ADD (ADD LAST)-----------------------//
+    public void Add(string data)
     {
         Node newNode = new Node(data);
         if (tail == null)
@@ -61,7 +63,7 @@ public class DoubleLinkList : IEnumerable<Node>
         Length++;
     }
 
-
+    //-----------------------ADD FIRST-----------------------//
     public void Addfirst(string data)
     {
         Node newNode = new Node(data);
@@ -78,6 +80,40 @@ public class DoubleLinkList : IEnumerable<Node>
 
         head = newNode;
         Length++;
+    }
+    //-----------------------GET SPECIFIC NODE-----------------------//
+    //https://www.geeksforgeeks.org/write-a-function-to-get-nth-node-in-a-linked-list/
+
+    public string GetNth(int index)
+    {
+        Node current = head;
+        int count = 1; /* index of Node we are  
+                        currently looking at */
+        while (current != null)
+        {
+            if (count == index)
+            {
+                return current.Data;
+            }
+
+            count++;
+            current = current.Next;
+            //Debug.Log(current.Data);
+        }
+        return "0";
+    }
+    public string GetNext()
+    {
+        Node current = head;
+        while (current != null)
+        {
+            return current.Data;
+        }
+
+        current = current.Next;
+        Length++;
+        return "0";
+
     }
 
     //checks if item exists in list
