@@ -6,7 +6,8 @@ using UnityEngine.UI;
 public class DialogueManager : MonoBehaviour
 {
     //strings to hold filepath and number
-    string filePath;
+    string testPath;
+    string protoPath;
     int lineNumber;
 
     public GameObject NPCText;
@@ -27,30 +28,13 @@ public class DialogueManager : MonoBehaviour
     //instance of linked list
     DoubleLinkList D = new DoubleLinkList();
 
-    private void Awake()
-    {
-       // filePath = Application.persistentDataPath + "\\FirstScenario.txt";
-    }
-
     private void Start()
     {
-        filePath = Application.persistentDataPath + "\\FirstScenario.txt";
+        testPath = Application.persistentDataPath + "\\DialogueTest.txt";
+        protoPath = Application.persistentDataPath + "\\Prototype.txt";
 
-        //write text to file
-        ExternalData.WriteTxt();
-        Dialogue();
+        //Dialogue();
 
-        Debug.Log(D.GetNext(D.Active));
-        Debug.Log(D.GetNext(D.Active));
-        Debug.Log(D.GetNext(D.Active));
-
-        //Debug.Log(D.GetNext());
-        //Debug.Log(D.GetNext());
-        //Debug.Log(D.GetNext());
-
-        //DialogueText.GetComponent<Text>().text = D.GetNth(1);
-        //DialogueText.GetComponent<Text>().text = D.GetNth(2);
-        //DialogueText.GetComponent<Text>().text = D.GetNth(3);
 
     }
 
@@ -62,42 +46,59 @@ public class DialogueManager : MonoBehaviour
             JName.SetActive(true);
             PlayerText.SetActive(true);
             
-            //DialogueText.GetComponent<Text>().text = D.GetNext();
-            //DialogueText.GetComponent<Text>().text = D.GetNext();
-            //DialogueText.GetComponent<Text>().text = D.GetNth(3);
-            Debug.Log(D.GetNext(D.Active));
-            //Debug.Log(D.GetNth(2));
-            //Debug.Log(D.GetNth(3));
+            PlayerText.GetComponent<Text>().text = D.GetNext(D.Active);
+            //NPCText.GetComponent<Text>().text = D.GetNext(D.Active);
+
+            //Debug.Log(D.GetNext(D.Active));
         }
-        if (Input.GetKeyDown("r"))
+        if (Input.GetMouseButtonDown(0))
         {
-            Debug.Log(D.GetNext(D.Active));
+            PlayerText.GetComponent<Text>().text = D.GetNext(D.Active);
+            //Debug.Log(D.GetNext(D.Active));
         }
     }
 
     //---------METHODS---------//
 
-    void Dialogue()
-    {
-        lineNumber = 1;
-        D.Addfirst(ReadLine());
+    //void Dialogue()
+    //{
+    //    lineNumber = 1;
+    //    D.Addfirst(ReadTestLine());
+    //    lineNumber = 2;
+    //    D.Add(ReadTestLine());
+    //    lineNumber = 3;
+    //    D.Add(ReadTestLine());
+    //    lineNumber = 4;
+    //    D.Add(ReadTestLine());
+    //    lineNumber = 5;
+    //    D.Add(ReadTestLine());
+    //    lineNumber = 6;
+    //    D.Add(ReadTestLine());
+    //    lineNumber = 7;
+    //    D.Add(ReadTestLine());
+    //    lineNumber = 8;
+    //    D.Add(ReadTestLine());
+    //    lineNumber = 9;
+    //    D.Add(ReadTestLine());
+    //    lineNumber = 10;
+    //    D.Add(ReadTestLine());
+    //    lineNumber = 11;
+    //    D.Add(ReadTestLine());
+    //    lineNumber = 12;
+    //    D.Add(ReadTestLine());
+    //    lineNumber = 13;
+    //    D.Add(ReadTestLine());
+    //}
 
-        lineNumber = 2;
-        D.Add(ReadLine());
+    //readline for test scenario
+    //private string ReadTestLine()
+    //{
+    //    //string lineCont = ExternalData.ReadSpecificLine(testPath, lineNumber);
 
-        lineNumber = 3;
-        D.Add(ReadLine());
-    }
-
-    //
-    private string ReadLine()
-    {
-        string lineCont = ExternalData.ReadSpecificLine(filePath, lineNumber);
-
-        if (lineCont != null)
-        {
-            //Debug.Log(lineCont);
-        }
-        return lineCont;
-    }
+    //    if (lineCont != null)
+    //    {
+    //        //Debug.Log(lineCont);
+    //    }
+    //    return lineCont;
+    //}
 }

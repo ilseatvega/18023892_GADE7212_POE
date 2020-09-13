@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DoubleLinkList : IEnumerable<Node>
+public class DoubleLinkList /*: IEnumerable<Node>*/
 {
     //https://www.youtube.com/watch?v=GcC5kW9tyOQ&t=318s
 
@@ -22,31 +22,6 @@ public class DoubleLinkList : IEnumerable<Node>
     }
 
     public int Length { get; private set; }
-
-    public IEnumerator<Node> GetEnumerator()
-    {
-        Node current = head;
-        while (current != null)
-        {
-            yield return current;
-            current = current.Next;
-        }
-    }
-
-    IEnumerator IEnumerable.GetEnumerator()
-    {
-        return GetEnumerator();
-    }
-
-    public IEnumerable GetEnumeratorReverse()
-    {
-        Node current = tail;
-        while (current != null)
-        {
-            yield return current;
-            current = current.Prev;
-        }
-    }
 
     //-----------------------ADD (ADD LAST)-----------------------//
     public void Add(string data)
@@ -86,7 +61,6 @@ public class DoubleLinkList : IEnumerable<Node>
     }
     //-----------------------GET SPECIFIC NODE-----------------------//
     
-
     public string GetNth(int index)
     {
         Node current = head;
@@ -106,69 +80,20 @@ public class DoubleLinkList : IEnumerable<Node>
         return "0";
     }
 
+    //-----------------------GET NEXT NODE-----------------------//
     public string GetNext(Node current)
     {
-        Node followingNode;
-
+        Node followNode;
         if (active == null)
         {
             current = head;
         }
         else
         {
-            followingNode = current.Next;
-            current = followingNode;
+            followNode = active.Next;
+            current = followNode;
         }
         active = current;
         return current.Data;
     }
-
-    //checks if item exists in list
-    public bool Contains(string value)
-    {
-        Node current = head;
-        while (current != null)
-        {
-            if (current.Data == value)
-            {
-                return true;
-            }
-
-            current = current.Next;
-        }
-        return false;
-    }
-
-    //finds first node that contains specified value
-    public Node Find(string value)
-    {
-        Node current = head;
-        while (current != null)
-        {
-            if (current.Data == value)
-            {
-                return current;
-            }
-
-            current = current.Next;
-        }
-        return null;
-    }
-
-    //finds last node that contains specified value
-    public Node FindLast(string value)
-    {
-        Node current = tail;
-        while (current != null)
-        {
-            if (current.Data == value)
-            {
-                return current;
-            }
-
-            current = current.Prev;
-        }
-        return null;
-    }
-
 }
