@@ -27,7 +27,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        DialogueText.GetComponent<Text>().text = D.GetNth(1);
+        //DialogueText.GetComponent<Text>().text = D.GetNth(1);
     }
 
     // Update is called once per frame

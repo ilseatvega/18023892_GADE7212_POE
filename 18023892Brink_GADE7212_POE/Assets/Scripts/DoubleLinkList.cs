@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class DoubleLinkList : IEnumerable<Node>
 {
-    //https://www.youtube.com/watch?v=N02o3EaNkXk
+    //https://www.youtube.com/watch?v=GcC5kW9tyOQ&t=318s
+
+    private Node active = null;
+    public Node Active { get { return active; } }
 
     private Node head;
     public Node First
@@ -82,13 +85,13 @@ public class DoubleLinkList : IEnumerable<Node>
         Length++;
     }
     //-----------------------GET SPECIFIC NODE-----------------------//
-    //https://www.geeksforgeeks.org/write-a-function-to-get-nth-node-in-a-linked-list/
+    
 
     public string GetNth(int index)
     {
         Node current = head;
-        int count = 1; /* index of Node we are  
-                        currently looking at */
+        //index of Node we are currently looking at - start at 1 bc i set txt file up to start at 1
+        int count = 1;
         while (current != null)
         {
             if (count == index)
@@ -102,18 +105,22 @@ public class DoubleLinkList : IEnumerable<Node>
         }
         return "0";
     }
-    public string GetNext()
+
+    public string GetNext(Node current)
     {
-        Node current = head;
-        while (current != null)
+        Node followingNode;
+
+        if (active == null)
         {
-            return current.Data;
+            current = head;
         }
-
-        current = current.Next;
-        Length++;
-        return "0";
-
+        else
+        {
+            followingNode = current.Next;
+            current = followingNode;
+        }
+        active = current;
+        return current.Data;
     }
 
     //checks if item exists in list
@@ -163,4 +170,5 @@ public class DoubleLinkList : IEnumerable<Node>
         }
         return null;
     }
+
 }

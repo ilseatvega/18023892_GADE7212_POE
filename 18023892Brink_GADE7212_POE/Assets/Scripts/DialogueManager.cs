@@ -9,7 +9,8 @@ public class DialogueManager : MonoBehaviour
     string filePath;
     int lineNumber;
 
-    public GameObject DialogueText;
+    public GameObject NPCText;
+    public GameObject PlayerText;
 
     public GameObject DName;
     public GameObject AName;
@@ -39,6 +40,14 @@ public class DialogueManager : MonoBehaviour
         ExternalData.WriteTxt();
         Dialogue();
 
+        Debug.Log(D.GetNext(D.Active));
+        Debug.Log(D.GetNext(D.Active));
+        Debug.Log(D.GetNext(D.Active));
+
+        //Debug.Log(D.GetNext());
+        //Debug.Log(D.GetNext());
+        //Debug.Log(D.GetNext());
+
         //DialogueText.GetComponent<Text>().text = D.GetNth(1);
         //DialogueText.GetComponent<Text>().text = D.GetNth(2);
         //DialogueText.GetComponent<Text>().text = D.GetNth(3);
@@ -50,12 +59,19 @@ public class DialogueManager : MonoBehaviour
         if (Input.GetKeyDown("e"))
         {
             PlayerBox.SetActive(true);
+            JName.SetActive(true);
+            PlayerText.SetActive(true);
+            
             //DialogueText.GetComponent<Text>().text = D.GetNext();
             //DialogueText.GetComponent<Text>().text = D.GetNext();
             //DialogueText.GetComponent<Text>().text = D.GetNth(3);
-            Debug.Log(D.GetNext());
-            Debug.Log(D.GetNext());
-            Debug.Log(D.GetNext());
+            Debug.Log(D.GetNext(D.Active));
+            //Debug.Log(D.GetNth(2));
+            //Debug.Log(D.GetNth(3));
+        }
+        if (Input.GetKeyDown("r"))
+        {
+            Debug.Log(D.GetNext(D.Active));
         }
     }
 
