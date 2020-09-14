@@ -29,6 +29,7 @@ public class DialogueManager : MonoBehaviour
 
     public Sprite[] portraits;
     public Image portrait;
+    
 
     //instance of linked list
     DoubleLinkList D = new DoubleLinkList();

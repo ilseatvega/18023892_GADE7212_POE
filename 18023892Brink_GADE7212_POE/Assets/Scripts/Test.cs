@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System.IO;
 
 public class Test : MonoBehaviour
 {
@@ -25,12 +26,26 @@ public class Test : MonoBehaviour
 
     bool inDialogue = false;
 
+    public TextAsset txt;
+
     //instance of linked list
     DoubleLinkList D = new DoubleLinkList();
 
     private void Start()
     {
-        testPath = Application.dataPath + @"\ObjectData\Dialogues\" + @"DialogueTest.txt";
+        testPath = @"DialogueTest.txt";
+        if (File.Exists(testPath))
+        {
+            
+        }
+        else
+        {
+            StreamWriter sw = File.CreateText(testPath);
+            sw.Write(txt.text);
+            sw.Close();
+        }
+
+        //testPath = @"DialogueTest.txt";
 
         dialogue = new Dialogue(testPath);
         

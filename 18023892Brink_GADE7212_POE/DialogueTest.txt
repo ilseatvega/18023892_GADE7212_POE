@@ -1,0 +1,13 @@
+0#This is just a test! (Click LEFT MOUSE BUTTON)
+1#What are you testing?
+0#I had to make a custom Linked List...for dialogue...
+1#Oh... That sounds painful.
+0#Yeah, it was.
+1#But at least it's done!
+0#Well yes but actually no.
+1#You probably won't finish this assignment.
+0#Yes.
+1#Okay well glhf.
+0#Thanks.
+1#Bye.
+0#Bye.

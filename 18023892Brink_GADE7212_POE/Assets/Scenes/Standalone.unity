@@ -441,7 +441,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1092426372}
-  - component: {fileID: 1092426371}
   - component: {fileID: 1092426373}
   m_Layer: 0
   m_Name: GameManager
@@ -450,28 +449,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1092426371
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1092426370}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d0d40d53b921214398ca02033e8fa6f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  NPCText: {fileID: 0}
-  PlayerText: {fileID: 0}
-  NPCName: {fileID: 0}
-  PName: {fileID: 0}
-  Prompt: {fileID: 0}
-  PlayerBox: {fileID: 0}
-  NPCBox: {fileID: 0}
-  Actors: []
-  portraits: []
-  portrait: {fileID: 0}
 --- !u!4 &1092426372
 Transform:
   m_ObjectHideFlags: 0
@@ -506,6 +483,7 @@ MonoBehaviour:
   PlayerBox: {fileID: 1282139002}
   DepressionBox: {fileID: 294632058}
   Actors: []
+  txt: {fileID: 4900000, guid: f3015d8f6afb45044a2b04efd9c31b36, type: 3}
 --- !u!1 &1282139002
 GameObject:
   m_ObjectHideFlags: 0
@@ -939,6 +917,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8847781592835479056, guid: ec7e7db51b50a2a49aca0e5d73c1cfda,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 8847781592835479056, guid: ec7e7db51b50a2a49aca0e5d73c1cfda,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 8847781592835479056, guid: ec7e7db51b50a2a49aca0e5d73c1cfda,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 8847781592835479058, guid: ec7e7db51b50a2a49aca0e5d73c1cfda,
         type: 3}
       propertyPath: m_Name
@@ -1213,7 +1206,7 @@ MonoBehaviour:
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 1
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -1365,7 +1358,7 @@ Transform:
   m_GameObject: {fileID: 1988897894}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -5.72, z: 0}
-  m_LocalScale: {x: 10, y: 2, z: 10}
+  m_LocalScale: {x: 20, y: 2, z: 10}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 10
