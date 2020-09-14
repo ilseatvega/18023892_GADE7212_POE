@@ -8,6 +8,7 @@ public class Dialogue
 {
     public DoubleLinkList D = new DoubleLinkList();
 
+    //Reading through text file and adding text to nodes in linked list
     public Dialogue(string path)
    {
         string[] lines;
@@ -39,10 +40,6 @@ public class Dialogue
             }
 
             }
-
-        //Debug.Log("Current Node: " + D.Active.Data);
-        //D.Reset();
-        //Debug.Log("Current Node: " + D.Active.Data);
     }
 
     public DoubleLinkList D1 { get => D; set => D = value; }

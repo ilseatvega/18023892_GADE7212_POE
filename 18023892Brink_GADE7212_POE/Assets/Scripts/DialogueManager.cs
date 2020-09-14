@@ -5,100 +5,173 @@ using UnityEngine.UI;
 
 public class DialogueManager : MonoBehaviour
 {
-    //strings to hold filepath and number
-    string testPath;
-    string protoPath;
-    int lineNumber;
+    public static DialogueManager instance;
 
-    public GameObject NPCText;
-    public GameObject PlayerText;
+    //string arnasPath;
+    //string depressionPath;
 
-    public GameObject DName;
-    public GameObject AName;
-    public GameObject JName;
+    public Text NPCText;
+    public Text PlayerText;
 
-    public GameObject PlayerCharacter;
-    public GameObject DepressionCharacter;
-    public GameObject ArnasCharacter;
+    public Text NPCName;
+    public Text PName;
+
+    public Text Prompt;
 
     public GameObject PlayerBox;
-    public GameObject DepressionBox;
-    public GameObject ArnasBox;
+    public GameObject NPCBox;
+
+    public List<string> Actors;
+
+    Dialogue dialogue;
+
+    bool inDialogue = false;
+
+    public Sprite[] portraits;
+    public Image portrait;
 
     //instance of linked list
     DoubleLinkList D = new DoubleLinkList();
 
-    private void Start()
+    private void Awake()
     {
-        testPath = Application.persistentDataPath + "\\DialogueTest.txt";
-        protoPath = Application.persistentDataPath + "\\Prototype.txt";
-
-        //Dialogue();
-
-
+        //singleton
+        if (instance != null && instance != this)
+        {
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            instance = this;
+        }
     }
 
+    //------------------START------------------//
+    private void Start()
+    {
+        Actors.Add("Player");
+        Actors.Add("Arnas");
+        Actors.Add("Depression");
+    }
+
+    //------------------UPDATE------------------//
     private void Update()
     {
-        if (Input.GetKeyDown("e"))
+        if (Input.GetMouseButtonDown(0) && inDialogue)
         {
-            PlayerBox.SetActive(true);
-            JName.SetActive(true);
-            PlayerText.SetActive(true);
-            
-            PlayerText.GetComponent<Text>().text = D.GetNext(D.Active);
-            //NPCText.GetComponent<Text>().text = D.GetNext(D.Active);
-
-            //Debug.Log(D.GetNext(D.Active));
-        }
-        if (Input.GetMouseButtonDown(0))
-        {
-            PlayerText.GetComponent<Text>().text = D.GetNext(D.Active);
-            //Debug.Log(D.GetNext(D.Active));
+            NextDialogue();
         }
     }
 
     //---------METHODS---------//
+    
+    //DIALOGUE START
+    public void DialogueStart(Dialogue dlIn)
+    {
+        inDialogue = true;
+        dialogue = dlIn;
+        dialogue.D.GetNext(D.Active);
 
-    //void Dialogue()
-    //{
-    //    lineNumber = 1;
-    //    D.Addfirst(ReadTestLine());
-    //    lineNumber = 2;
-    //    D.Add(ReadTestLine());
-    //    lineNumber = 3;
-    //    D.Add(ReadTestLine());
-    //    lineNumber = 4;
-    //    D.Add(ReadTestLine());
-    //    lineNumber = 5;
-    //    D.Add(ReadTestLine());
-    //    lineNumber = 6;
-    //    D.Add(ReadTestLine());
-    //    lineNumber = 7;
-    //    D.Add(ReadTestLine());
-    //    lineNumber = 8;
-    //    D.Add(ReadTestLine());
-    //    lineNumber = 9;
-    //    D.Add(ReadTestLine());
-    //    lineNumber = 10;
-    //    D.Add(ReadTestLine());
-    //    lineNumber = 11;
-    //    D.Add(ReadTestLine());
-    //    lineNumber = 12;
-    //    D.Add(ReadTestLine());
-    //    lineNumber = 13;
-    //    D.Add(ReadTestLine());
-    //}
+        //if player
+        if (Decypher(dialogue.D.Active.Data)[0] == "0")
+        {
+            NPCBox.SetActive(false);
+            PlayerBox.SetActive(true);
 
-    //readline for test scenario
-    //private string ReadTestLine()
-    //{
-    //    //string lineCont = ExternalData.ReadSpecificLine(testPath, lineNumber);
+            StopAllCoroutines();
+            StartCoroutine(typeSentencePlayer(Decypher(dialogue.D.Active.Data)[1]));
+        }
+        //if NPC
+        else 
+        {
+            PlayerBox.SetActive(false);
+            NPCBox.SetActive(true);
 
-    //    if (lineCont != null)
-    //    {
-    //        //Debug.Log(lineCont);
-    //    }
-    //    return lineCont;
-    //}
+            NPCName.text = Actors[int.Parse(Decypher(dialogue.D.Active.Data)[0])];
+            portrait.sprite = portraits[int.Parse(Decypher(dialogue.D.Active.Data)[0])];
+
+
+            StopAllCoroutines();
+            StartCoroutine(typeSentenceNPC(Decypher(dialogue.D.Active.Data)[1]));
+        }
+    }
+    //DIALOGUE NEXT
+    public void NextDialogue()
+    {
+        if (dialogue.D.Active.Next != null)
+        {
+            dialogue.D.GetNext(D.Active);
+
+            //if player
+            if (Decypher(dialogue.D.Active.Data)[0] == "0")
+            {
+                NPCBox.SetActive(false);
+                PlayerBox.SetActive(true);
+
+                StopAllCoroutines();
+                StartCoroutine(typeSentencePlayer(Decypher(dialogue.D.Active.Data)[1]));
+            }
+            //if NPC
+            else 
+            {
+                PlayerBox.SetActive(false);
+                NPCBox.SetActive(true);
+
+                NPCName.text = Actors[int.Parse(Decypher(dialogue.D.Active.Data)[0])];
+                portrait.sprite = portraits[int.Parse(Decypher(dialogue.D.Active.Data)[0])];
+
+                StopAllCoroutines();
+                StartCoroutine(typeSentenceNPC(Decypher(dialogue.D.Active.Data)[1]));
+            }
+        }
+        else
+        {
+            EndDialogue();
+        }
+    }
+
+    //DIALOGUE END
+    public void EndDialogue()
+    {
+        PlayerBox.SetActive(false);
+        NPCBox.SetActive(false);
+        inDialogue = false;
+    }
+
+    //DECYPHER
+    //splitting strings and storing them in array
+    //[0] = who is speaking (eg 1 is Arnas)
+    //[1] = what they are saying
+    public string[] Decypher(string lineIn)
+    {
+        string[] output = lineIn.Split('#');
+        //Debug.Log("Output Length: " + output.Length);
+
+        for (int i = 0; i < output.Length; i++)
+        {
+            //Debug.Log(output[i]);
+        }
+        return output;
+    }
+
+    //just being fancy, making text display as if it's being typed
+    IEnumerator typeSentencePlayer(string sentence)
+    {
+        PlayerText.text = "";
+        foreach (char letter in sentence.ToCharArray())
+        {
+            PlayerText.text += letter;
+            yield return new WaitForSeconds(0.04f);
+        }
+    }
+    //same but for NPC
+    IEnumerator typeSentenceNPC(string sentence)
+    {
+        NPCText.text = "";
+        foreach (char letter in sentence.ToCharArray())
+        {
+            NPCText.text += letter;
+            yield return new WaitForSeconds(0.04f);
+        }
+    }
 }

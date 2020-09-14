@@ -7,7 +7,6 @@ public class Test : MonoBehaviour
 {
     //strings to hold filepath and number
     string testPath;
-    int lineNumber =1;
 
     public Text NPCText;
     public Text PlayerText;
@@ -31,7 +30,7 @@ public class Test : MonoBehaviour
 
     private void Start()
     {
-        testPath = Application.persistentDataPath + "\\DialogueTest.txt";
+        testPath = Application.dataPath + @"\ObjectData\Dialogues\" + @"DialogueTest.txt";
 
         dialogue = new Dialogue(testPath);
         
@@ -68,8 +67,6 @@ public class Test : MonoBehaviour
 
             StopAllCoroutines();
             StartCoroutine(typeSentencePlayer(Decypher(dialogue.D.Active.Data)[1]));
-
-            //PlayerText.text = Decypher(dialogue.D.Active.Data)[1];
         }
         else
         {
@@ -78,8 +75,6 @@ public class Test : MonoBehaviour
 
             StopAllCoroutines();
             StartCoroutine(typeSentenceNPC(Decypher(dialogue.D.Active.Data)[1]));
-
-            //NPCText.text = Decypher(dialogue.D.Active.Data)[1];
         }
     }
 
@@ -95,8 +90,7 @@ public class Test : MonoBehaviour
 
                 StopAllCoroutines();
                 StartCoroutine(typeSentencePlayer(Decypher(dialogue.D.Active.Data)[1]));
-
-                //PlayerText.text = Decypher(dialogue.D.Active.Data)[1];
+                
             }
             else
             {
@@ -105,8 +99,7 @@ public class Test : MonoBehaviour
 
                 StopAllCoroutines();
                 StartCoroutine(typeSentenceNPC(Decypher(dialogue.D.Active.Data)[1]));
-
-                //NPCText.text = Decypher(dialogue.D.Active.Data)[1];
+                
             }
         }
         else
