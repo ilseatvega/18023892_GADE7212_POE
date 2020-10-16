@@ -10,7 +10,6 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float moveSpeed;
     [Range(0.01f, 0.5f)] [SerializeField] private float movementSmoothing;
     public LayerMask whatIsGround;
-    public LayerMask whatIsDeath;
 
     bool facingRight = true;
     float h;
@@ -23,7 +22,6 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         h = Input.GetAxisRaw("Horizontal");
-
     }
 
     private void FixedUpdate()
