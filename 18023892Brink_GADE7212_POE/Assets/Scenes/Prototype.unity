@@ -315,8 +315,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -540, y: 291}
-  m_SizeDelta: {x: 600, y: 300}
+  m_AnchoredPosition: {x: -479, y: 291}
+  m_SizeDelta: {x: 900, y: 300}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &81381697
 MonoBehaviour:
@@ -351,7 +351,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Press the button to interact
+  m_Text: Press 'E' when close to a character to interact
 --- !u!222 &81381698
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -483,7 +483,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &351701856
 RectTransform:
   m_ObjectHideFlags: 0
@@ -516,6 +516,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da94d7486210c5d4c91053b67c8840cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interactionDist: 0
   dialogueFile: 1_Arnas
 --- !u!114 &351701858
 MonoBehaviour:
@@ -1420,7 +1421,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1237669236
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1453,6 +1454,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da94d7486210c5d4c91053b67c8840cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interactionDist: 0
   dialogueFile: 2_Depression
 --- !u!114 &1237669238
 MonoBehaviour:
@@ -2668,11 +2670,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Arnas
-      objectReference: {fileID: 0}
-    - target: {fileID: 8224301923860368629, guid: b3d84f9eabef40e419d18bd22eeb21b5,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b3d84f9eabef40e419d18bd22eeb21b5, type: 3}

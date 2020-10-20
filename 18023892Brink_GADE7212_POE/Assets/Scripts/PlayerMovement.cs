@@ -10,15 +10,19 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float moveSpeed;
     [Range(0.01f, 0.5f)] [SerializeField] private float movementSmoothing;
     public LayerMask whatIsGround;
+    Animator playerAnim;
 
     bool facingRight = true;
     float h;
 
+    //System.Random rnd = new System.Random();
+
     private void Start()
     {
         Application.targetFrameRate = 144;
+        playerAnim = GetComponent<Animator>();
     }
-    // Update is called once per frame
+    
     void Update()
     {
         h = Input.GetAxisRaw("Horizontal");
@@ -31,6 +35,17 @@ public class PlayerMovement : MonoBehaviour
 
     private void Move()
     {
+        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
+        {
+            playerAnim.SetBool("Walk", true);
+        }
+        else
+        {
+            playerAnim.SetBool("Walk", false);
+
+            //StartCoroutine(Idle());
+        }
+
         if (h < 0 && facingRight)
         {
             FlipX();
@@ -53,4 +68,17 @@ public class PlayerMovement : MonoBehaviour
 
         facingRight = !facingRight;
     }
+
+    //void RepeatIdle()
+    //{
+    //    StartCoroutine(Idle());
+    //}
+
+    //IEnumerator Idle()
+    //{
+    //    playerAnim.Play("Base Layer.Idle");
+    //    yield return new WaitForSeconds(5f);
+    //    RepeatIdle();
+    //    yield return null;
+    //}
 }

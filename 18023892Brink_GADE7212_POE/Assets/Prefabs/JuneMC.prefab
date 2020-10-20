@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 2384952809106310830}
   m_Layer: 0
   m_Name: JuneMC
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -156,10 +156,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 25
-  movementSmoothing: 0
+  movementSmoothing: 0.01
   whatIsGround:
     serializedVersion: 2
     m_Bits: 256
-  whatIsDeath:
-    serializedVersion: 2
-    m_Bits: 0

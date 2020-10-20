@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8224301923860368627}
   - component: {fileID: 8224301923860368628}
   - component: {fileID: 1428671474417134426}
+  - component: {fileID: 5931709513794118690}
   m_Layer: 0
   m_Name: Arnas
   m_TagString: Untagged
@@ -116,4 +117,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da94d7486210c5d4c91053b67c8840cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interactionDist: 2.5
   dialogueFile: 1_Arnas
+--- !u!114 &5931709513794118690
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8224301923860368629}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e20dbd76aea00f04b8d90d52d751386d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  whatIsGround:
+    serializedVersion: 2
+    m_Bits: 256
+  decisionTime: {x: 1, y: 4}
