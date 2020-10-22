@@ -13,7 +13,7 @@ public class NPCMovement : MonoBehaviour
     public Vector2 decisionTime = new Vector2(1, 4);
     internal float decisionTimeCount = 0;
 
-    internal Vector3[] moveDirections = new Vector3[] { Vector3.right, Vector3.left, Vector3.zero, Vector3.zero };
+    internal Vector3[] moveDirections = new Vector3[] { Vector3.right, Vector3.left, Vector3.zero, Vector3.zero, Vector3.zero };
     internal int currentMoveDirection;
 
     Animator NPCAnim;

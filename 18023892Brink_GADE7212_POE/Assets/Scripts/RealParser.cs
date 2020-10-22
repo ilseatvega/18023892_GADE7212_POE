@@ -4,14 +4,23 @@ using UnityEngine;
 using UnityEngine.UI;
 using System;
 
-public class Parser : MonoBehaviour
+public class RealParser : MonoBehaviour
 {
     Hashtable commands = new Hashtable();
     Hashtable inv = new Hashtable();
 
     string[] interpret;
+
     public GameObject inputTxt;
     public GameObject outputTxt;
+    public GameObject inputField;
+    public GameObject Arnas;
+    public GameObject Depression;
+    public GameObject Check1;
+    public GameObject Check2;
+    public GameObject Uncheck1;
+    public GameObject Uncheck2;
+
     string key;
     string value;
 
@@ -20,9 +29,6 @@ public class Parser : MonoBehaviour
     void Start()
     {
         AddCommmands();
-        
-        //IGNORE CASE
-        //if (stringName.Equals("astringvalue", StringComparison.InvariantCultureIgnoreCase))
     }
 
     // Update is called once per frame
@@ -32,13 +38,29 @@ public class Parser : MonoBehaviour
         {
             StoreInput();
             TextOutput();
-            
-            //Debug.Log(interpret[0] + " " + interpret[1]);
         }
         else if (Input.GetMouseButton(0))
         {
             inputTxt.SetActive(true);
             outputTxt.SetActive(false);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            if (inputField.active == true)
+            {
+                inputField.SetActive(false);
+
+                Arnas.GetComponent<DialogueTrigger>().enabled = true;
+                Depression.GetComponent<DialogueTrigger>().enabled = true;
+            }
+            else if (inputField.active == false)
+            {
+                inputField.SetActive(true);
+
+                Arnas.GetComponent<DialogueTrigger>().enabled = false;
+                Depression.GetComponent<DialogueTrigger>().enabled = false;
+            }
         }
 
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -62,12 +84,11 @@ public class Parser : MonoBehaviour
             {
                 key = null;
                 value = null;
-                    //string array into a single string
-                    foreach (string item in interpret)
-                    {
-                        key += item + " ";
-                    }
-                //Debug.Log(key);
+                //string array into a single string
+                foreach (string item in interpret)
+                {
+                    key += item + " ";
+                }
 
                 value = commands[key].ToString();
 
@@ -95,30 +116,34 @@ public class Parser : MonoBehaviour
                 {
                     key += item + " ";
                 }
-                //Debug.Log(key);
-                
-                if (key == "pick up photo ")
+
+                if (key == "pick up jug ")
                 {
                     ToggleUI();
                     value = commands[key].ToString();
-                    inv.Add(001,"photo1");
-                    Debug.Log(inv.ContainsKey(001));
+                    inv.Add(001, "jug");
                     outputTxt.GetComponent<Text>().text = value;
                 }
-                else if (key == "pick up noodles ")
+                else if (key == "pick up milk ")
                 {
                     ToggleUI();
                     value = commands[key].ToString();
-                    inv.Add(002, "noodles");
-                    Debug.Log(inv.ContainsKey(002));
+                    inv.Add(002, "milk");
                     outputTxt.GetComponent<Text>().text = value;
                 }
-                else if (key == "pick up noodles and photo " || key == "pick up photo and noodles ")
+                else if (key == "pick up tea ")
                 {
                     ToggleUI();
                     value = commands[key].ToString();
-                    inv.Add(001, "photo1");
-                    inv.Add(002, "noodles");
+                    inv.Add(003, "tea");
+                    outputTxt.GetComponent<Text>().text = value;
+                }
+                else if (key == "pick up milk and tea " || key == "pick up milk and tea ")
+                {
+                    ToggleUI();
+                    value = commands[key].ToString();
+                    inv.Add(002, "milk");
+                    inv.Add(003, "tea");
                     outputTxt.GetComponent<Text>().text = value;
                 }
                 else
@@ -138,25 +163,34 @@ public class Parser : MonoBehaviour
                 {
                     key += item + " ";
                 }
-                //Debug.Log(key);
-                
-                if (inv.ContainsKey(001) && key == "use photo on kettle ")
+
+                if (inv.ContainsKey(001) && key == "use jug on plant ")
+                {
+                    ToggleUI();
+                    value = commands[key].ToString();
+                    outputTxt.GetComponent<Text>().text = value;
+                    Uncheck1.SetActive(false);
+                    Check1.SetActive(true);
+                }
+                else if (inv.ContainsKey(002) && key == "use milk on kettle ")
                 {
                     ToggleUI();
                     value = commands[key].ToString();
                     outputTxt.GetComponent<Text>().text = value;
                 }
-                else if (inv.ContainsKey(002) && key == "use noodles on kettle ")
+                else if (inv.ContainsKey(003) && key == "use tea on kettle ")
                 {
                     ToggleUI();
                     value = commands[key].ToString();
                     outputTxt.GetComponent<Text>().text = value;
                 }
-                else if (inv.ContainsKey(001) && inv.ContainsKey(002) && (key == "use noodles and photo on kettle " || key == "use noodles and photo on kettle "))
+                else if (inv.ContainsKey(002) && inv.ContainsKey(003) && (key == "use tea and milk on kettle " || key == "use milk and tea on kettle "))
                 {
                     ToggleUI();
                     value = commands[key].ToString();
                     outputTxt.GetComponent<Text>().text = value;
+                    Uncheck2.SetActive(false);
+                    Check2.SetActive(true);
                 }
                 else
                 {
@@ -186,21 +220,22 @@ public class Parser : MonoBehaviour
     void AddCommmands()
     {
         //LOOK AT
-        commands.Add("look at kettle ", "I could use this to make some noodles.");
-        commands.Add("look at plant ", "I'm surpised it isn't dead yet.");
+        commands.Add("look at kettle ", "I could use this to make some tea.");
+        commands.Add("look at plant ", "I'm surpised it isn't dead yet. I should water it.");
         commands.Add("look at stove ", "We never really used the stove.");
-        commands.Add("look at cupboard ", "I bet I could find some noodles in here.");
-        commands.Add("look at fridge ", "Huh, I haven't seen these photos of Arnas and I since... Maybe I should take one.");
+        commands.Add("look at cupboard ", "Empty. I haven't gone shopping in weeks.");
+        commands.Add("look at fridge ", "Huh, I haven't seen these photos of Arnas and I since...");
         commands.Add("look at microwave ", "Arnas' choice cooking method. Mine too, if i'm honest.");
         //PICK UP
-        commands.Add("pick up photo ", "Photo has been added to inventory.");
-        commands.Add("pick up noodles ", "Noodles have been added to inventory.");
-        commands.Add("pick up noodles and photo ", "Noodles and photo have been added to inventory.");
-        commands.Add("pick up photo and noodles ", "photo and noodles have been added to inventory.");
+        commands.Add("pick up milk ", "Milk has been added to your inventory.");
+        commands.Add("pick up jug ", "Jug has been added to your inventory.");
+        commands.Add("pick up tea ", "Tea has been added to  your inventory.");
+        commands.Add("pick up tea and milk ", "Tea has been added to  your inventory.");
+        commands.Add("pick up milk and tea ", "Tea has been added to  your inventory.");
         //USE
-        commands.Add("use noodles on kettle ", "Alright, time to try and enjoy some noodles.");
-        commands.Add("use photo on kettle ", "That would never work. I need noodles!");
-        commands.Add("use noodles and photo on kettle ", "Contrary to popular belief this photo isn't needed to make noodles.");
-        commands.Add("use photo and noodles on kettle ", "Contrary to popular belief this photo isn't needed to make noodles.");
+        commands.Add("use tea and milk on kettle ", "Alright, maybe this will help me sleep.");
+        commands.Add("use milk and tea on kettle ", "Alright, maybe this will help me sleep.");
+        commands.Add("use jug on plant ", "Hang in there buddy, it'll get better.");
+        commands.Add("use tea on kettle ", "I think I'm missing something...");        commands.Add("use milk on kettle ", "I think I'm missing something...");
     }
 }
