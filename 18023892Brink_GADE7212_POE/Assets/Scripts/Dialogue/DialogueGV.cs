@@ -6,6 +6,7 @@ using UnityEditor;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine.UIElements;
 using System;
+using System.Linq;
 
 public class DialogueGV : GraphView
 {
@@ -13,7 +14,7 @@ public class DialogueGV : GraphView
     //https://www.youtube.com/watch?v=7KHGH0fPL84
 
         //default node size 
-    private readonly Vector2 defaultNodeSize = new Vector2(150, 200);
+    public readonly Vector2 defaultNodeSize = new Vector2(150, 200);
 
     //constructor
     public DialogueGV()
@@ -55,9 +56,14 @@ public class DialogueGV : GraphView
         };
 
         var createdPort = CreatePort(node, Direction.Output);
-        createdPort.portName = "Next";
+        createdPort.portName = "StartNodeEdge";
         //output container for this new node
         node.outputContainer.Add(createdPort);
+
+        //changing this entry point node capbilities to not be able to be moved or deleted
+        node.capabilities &= ~Capabilities.Movable;
+        node.capabilities &= ~Capabilities.Deletable;
+
 
         //refresh after adding ports to update the visuals 
         node.RefreshExpandedState();
@@ -84,10 +90,20 @@ public class DialogueGV : GraphView
         inputPort.portName = "Input";
         dialogueNode.inputContainer.Add(inputPort);
 
+        //actual dialogue text
+        var dialText = new TextField(string.Empty);
+        dialText.RegisterValueChangedCallback(evt => 
+        {
+            dialogueNode.dialogueText = evt.newValue;
+            dialogueNode.title = evt.newValue;
+        });
+        dialText.SetValueWithoutNotify(dialogueNode.title);
+        dialogueNode.mainContainer.Add(dialText);
+
         //clicking the button to add a new choice port
         var button = new Button(clickEvent: () => { AddChoicePort(dialogueNode); });
         //adding the choice button to allow us to add a new port that will represent a new dialogue choice
-        button.text = "New Choice";
+        button.text = "Add Choice";
         dialogueNode.titleContainer.Add(button);
 
         //refresh after adding ports to update the visuals 
@@ -100,16 +116,46 @@ public class DialogueGV : GraphView
         return dialogueNode;
     }
 
-    private void AddChoicePort(DialogueNode dialogueNode)
+    //orPortName = overriden
+    public void AddChoicePort(DialogueNode dialogueNode, string orPortName = "")
     {
         //creating a port
         var createdPort = CreatePort(dialogueNode, Direction.Output);
 
+        //query for old label - looking for label anmed type
+        var label = createdPort.contentContainer.Q<Label>("type");
+        //remove it
+        createdPort.contentContainer.Remove(label);
+
         //change port name for each option
         //search for all ports in output container of this node
         var outputPortCount = dialogueNode.outputContainer.Query("connector").ToList().Count;
-        //assign port name as choice port count
-        createdPort.portName = $"Choice {outputPortCount}";
+        //assign port name as choice and the number of the port (eg Choice 1, Choice 2)
+        createdPort.portName = $"Type Choice Here {outputPortCount}";
+
+        // if true do whats after ? else whats after :
+        var choicePortName = string.IsNullOrEmpty(orPortName)
+            ? $"Type Choice Here {outputPortCount + 1}"
+            : orPortName;
+
+        var choiceText = new TextField
+        {
+            name = string.Empty,
+            //choice portname as def val
+            value = choicePortName
+        };
+        //callback to change port name when we change the text field
+        choiceText.RegisterValueChangedCallback(evt => createdPort.portName = evt.newValue);
+        createdPort.contentContainer.Add(new Label("    "));
+        createdPort.contentContainer.Add(choiceText);
+
+        //delete button to delete choice
+        var delChoice = new Button(()=>RemovePort(dialogueNode, createdPort)){text = "X"};
+
+        //add button to content container
+        createdPort.contentContainer.Add(delChoice);
+
+        createdPort.portName = choicePortName;
 
         //add this port to output container
         dialogueNode.outputContainer.Add(createdPort);
@@ -142,5 +188,26 @@ public class DialogueGV : GraphView
         );
         
         return compatiblePorts;
+    }
+
+    private void RemovePort(DialogueNode dialogueNode, Port createdPort)
+    {
+        //
+        var targetEdge = edges.ToList().Where(x => x.output.portName == createdPort.portName && x.output.node == createdPort.node);
+
+        if (targetEdge.Any())
+        {
+            var edge = targetEdge.First();
+            //dsiconnect connections (removes visual edge line)
+            edge.input.Disconnect(edge);
+            RemoveElement(targetEdge.First());
+        }
+        
+        //remove from output container
+        dialogueNode.outputContainer.Remove(createdPort);
+
+        //refresh to update the visuals 
+        dialogueNode.RefreshExpandedState();
+        dialogueNode.RefreshPorts();
     }
 }
