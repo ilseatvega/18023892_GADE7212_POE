@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 1111456301842857801}
   - component: {fileID: 1933283820109247724}
   - component: {fileID: 6441692685991157004}
-  - component: {fileID: 4942198607195977161}
   - component: {fileID: 6542872034285738460}
+  - component: {fileID: 4606758219941626005}
   m_Layer: 0
   m_Name: Depression
   m_TagString: Untagged
@@ -105,20 +105,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &4942198607195977161
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6920777781722034912}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: da94d7486210c5d4c91053b67c8840cd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  interactionDist: 2.5
-  dialogueFile: 2_Depression
 --- !u!114 &6542872034285738460
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -132,3 +118,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   decisionTime: {x: 1, y: 4}
+--- !u!114 &4606758219941626005
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6920777781722034912}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da94d7486210c5d4c91053b67c8840cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactionDist: 2.5
+  dialogueFile: 2_Depression

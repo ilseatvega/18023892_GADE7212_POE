@@ -14,7 +14,7 @@ public class NewDialogueManager : MonoBehaviour
 
     private void Awake()
     {
-        if (_dlm != null && this != _dlm)
+        if (_dlm != null && _dlm != this)
         {
             Destroy(this.gameObject);
         }
@@ -36,11 +36,32 @@ public class NewDialogueManager : MonoBehaviour
         
     }
 
+    private void Update()
+    {
+        if (Input.GetMouseButtonDown(0) && inDialogue)
+        {
+            NextDialogue();
+        }
+    }
     public void activateDialogue(ScriptableDialogue DialIn)
     {
         activeDialogue = DialIn;
         StartDialogue();
 
+    }
+
+    public void Interact()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            Debug.Log(currentNode.dialogueTxt);
+            foreach (var node in activeDialogue.ReturnOptions(currentNode))
+            {
+                Debug.Log(node.dialogueTxt);
+                //pls maam just work
+                //currentnode++;
+            }
+        }
     }
 
     public void StartDialogue()
@@ -54,8 +75,14 @@ public class NewDialogueManager : MonoBehaviour
         //Debug.Log(currentNode.dialogueTxt);
     }
 
+    public void NextDialogue()
+    {
+
+    }
+
     public void EndDialogue()
     {
         inDialogue = false;
     }
+
 }
