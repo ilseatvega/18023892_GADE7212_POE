@@ -7,7 +7,8 @@ using System;
 [Serializable]
 public class DialogueNodeData
 {
-        public string nodeID;
-        public string dialogueTxt;
-        public Vector2 position;
+    public string nodeID;
+    public string dialogueTxt;
+    public string dialogueKey;
+    public Vector2 position;
 }

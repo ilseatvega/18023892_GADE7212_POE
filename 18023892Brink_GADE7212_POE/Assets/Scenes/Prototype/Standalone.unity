@@ -583,6 +583,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   back: {fileID: 491379206}
+  button: {fileID: 0}
 --- !u!4 &1092426372
 Transform:
   m_ObjectHideFlags: 0
@@ -839,6 +840,11 @@ PrefabInstance:
     - target: {fileID: 3350374530912872122, guid: f1ed6d06680b65a43b6b65b0afefea56,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4064391490314556014, guid: f1ed6d06680b65a43b6b65b0afefea56,
+        type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

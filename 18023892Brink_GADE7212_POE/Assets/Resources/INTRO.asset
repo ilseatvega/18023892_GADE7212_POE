@@ -1,0 +1,75 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d3b3dab38db94042a6032d666a689ba, type: 3}
+  m_Name: INTRO
+  m_EditorClassIdentifier: 
+  GraphEdges:
+  - firstNodeID: 4e1b5f80-bfe6-43a3-85df-c76d52804d3c
+    portName: StartNodeEdge
+    secondNodeID: 52b96281-e577-4c59-bcbb-1194ca9dcb5a
+  - firstNodeID: 52b96281-e577-4c59-bcbb-1194ca9dcb5a
+    portName: How is it afternoon already? The days have just been flying by...
+    secondNodeID: b0f4a698-8812-4873-be11-7305e4baacd5
+  - firstNodeID: b0f4a698-8812-4873-be11-7305e4baacd5
+    portName: Two weeks ago you were fine.
+    secondNodeID: dce27e1e-640a-4a8b-99de-e0219e657978
+  - firstNodeID: dce27e1e-640a-4a8b-99de-e0219e657978
+    portName: ...
+    secondNodeID: f5cc4bcb-d89d-44ab-888d-7152dda90448
+  - firstNodeID: f5cc4bcb-d89d-44ab-888d-7152dda90448
+    portName: It's lurking around every corner, waiting for those quiet moments to
+      curl around me and suffocate me.
+    secondNodeID: 6bab71e5-e3a5-49aa-bdb5-284c161925d0
+  - firstNodeID: 6bab71e5-e3a5-49aa-bdb5-284c161925d0
+    portName: I don't know how I'm supposed to do this without you now.
+    secondNodeID: 994254d4-388d-4224-b4a3-9daef003aa6c
+  - firstNodeID: 994254d4-388d-4224-b4a3-9daef003aa6c
+    portName: '*sigh*'
+    secondNodeID: 33401569-2504-4dde-aa7b-e9499f36f509
+  - firstNodeID: 33401569-2504-4dde-aa7b-e9499f36f509
+    portName: Maybe things will be better tomorrow.
+    secondNodeID: fee83446-763f-4f48-822c-23e5896602ea
+  NodeData:
+  - nodeID: 52b96281-e577-4c59-bcbb-1194ca9dcb5a
+    dialogueTxt: ...
+    dialogueKey: 000
+    position: {x: 237, y: -106}
+  - nodeID: dce27e1e-640a-4a8b-99de-e0219e657978
+    dialogueTxt: A week ago you said you were feeling sick. And now...
+    dialogueKey: 000
+    position: {x: 330, y: 177}
+  - nodeID: f5cc4bcb-d89d-44ab-888d-7152dda90448
+    dialogueTxt: I feel so alone. Loneliness feels almost tangible, weighing down
+      the air around me.
+    dialogueKey: 000
+    position: {x: 227, y: 308}
+  - nodeID: 6bab71e5-e3a5-49aa-bdb5-284c161925d0
+    dialogueTxt: ...
+    dialogueKey: 000
+    position: {x: 298, y: 432}
+  - nodeID: 994254d4-388d-4224-b4a3-9daef003aa6c
+    dialogueTxt: No job, stuck alone in this apartment until July, and even after
+      that...
+    dialogueKey: 000
+    position: {x: 275, y: 577}
+  - nodeID: b0f4a698-8812-4873-be11-7305e4baacd5
+    dialogueTxt: I didn't think this was going to be the way I lose you.
+    dialogueKey: 000
+    position: {x: 360, y: 42}
+  - nodeID: fee83446-763f-4f48-822c-23e5896602ea
+    dialogueTxt: End
+    dialogueKey: 000
+    position: {x: 482, y: 862}
+  - nodeID: 33401569-2504-4dde-aa7b-e9499f36f509
+    dialogueTxt: Maybe I should try get some sleep again.
+    dialogueKey: 000
+    position: {x: 405, y: 720}

@@ -1,0 +1,89 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d3b3dab38db94042a6032d666a689ba, type: 3}
+  m_Name: K_ARNAS
+  m_EditorClassIdentifier: 
+  GraphEdges:
+  - firstNodeID: f2981edd-dcc6-413e-9db4-9c26d06a63b3
+    portName: StartNodeEdge
+    secondNodeID: b569aa2f-e4bd-4adb-8ee3-b3a2b4c9205e
+  - firstNodeID: b569aa2f-e4bd-4adb-8ee3-b3a2b4c9205e
+    portName: "Wait\u2026 a-arnas? This can\u2019t be real."
+    secondNodeID: c9bcea41-0336-4a3b-9f51-9b895acd59c4
+  - firstNodeID: b569aa2f-e4bd-4adb-8ee3-b3a2b4c9205e
+    portName: Arnas? I knew this was all a bad dream!
+    secondNodeID: 63737bfb-b7f1-46c2-8453-d1d25a2c6212
+  - firstNodeID: c9bcea41-0336-4a3b-9f51-9b895acd59c4
+    portName: "*sigh* yeah, I know you aren\u2019t real\u2026 I just miss you."
+    secondNodeID: 27632734-a6ad-48d9-8bc4-b67c7ea6e5f0
+  - firstNodeID: 63737bfb-b7f1-46c2-8453-d1d25a2c6212
+    portName: "*sigh* yeah, I know you aren\u2019t real\u2026 I just miss you."
+    secondNodeID: 27632734-a6ad-48d9-8bc4-b67c7ea6e5f0
+  - firstNodeID: c9bcea41-0336-4a3b-9f51-9b895acd59c4
+    portName: "I miss you\u2026 I found an old photo of us at the beach\u2026"
+    secondNodeID: a7fa3e84-152f-4771-8e5d-9c965980c1f8
+  - firstNodeID: 63737bfb-b7f1-46c2-8453-d1d25a2c6212
+    portName: "I miss you\u2026 I found an old photo of us at the beach\u2026"
+    secondNodeID: eee3b16f-fa10-4daf-8ca8-47d5a33a8eef
+  - firstNodeID: a7fa3e84-152f-4771-8e5d-9c965980c1f8
+    portName: "I don\u2019t think I can go on without you\u2026"
+    secondNodeID: dfb0865b-1c64-4dd3-9b21-3359db613b5f
+  - firstNodeID: eee3b16f-fa10-4daf-8ca8-47d5a33a8eef
+    portName: "I don\u2019t think I can go on without you\u2026"
+    secondNodeID: dfb0865b-1c64-4dd3-9b21-3359db613b5f
+  - firstNodeID: a7fa3e84-152f-4771-8e5d-9c965980c1f8
+    portName: "I wish I could go back\u2026 it\u2019s so hard knowing that you won\u2019t
+      come back."
+    secondNodeID: d28262d5-4a22-4822-84ce-c12f07aa5d33
+  - firstNodeID: eee3b16f-fa10-4daf-8ca8-47d5a33a8eef
+    portName: "I wish I could go back\u2026 it\u2019s so hard knowing that you won\u2019t
+      come back."
+    secondNodeID: d28262d5-4a22-4822-84ce-c12f07aa5d33
+  - firstNodeID: dfb0865b-1c64-4dd3-9b21-3359db613b5f
+    portName: "every day keeps getting harder\u2026 what\u2019s the point?"
+    secondNodeID: 27632734-a6ad-48d9-8bc4-b67c7ea6e5f0
+  - firstNodeID: d28262d5-4a22-4822-84ce-c12f07aa5d33
+    portName: But I need to start letting go, I need to try.
+    secondNodeID: 27632734-a6ad-48d9-8bc4-b67c7ea6e5f0
+  NodeData:
+  - nodeID: c9bcea41-0336-4a3b-9f51-9b895acd59c4
+    dialogueTxt: "\u2026"
+    dialogueKey: 000
+    position: {x: 755, y: 1}
+  - nodeID: b569aa2f-e4bd-4adb-8ee3-b3a2b4c9205e
+    dialogueTxt: "\u2026"
+    dialogueKey: 000
+    position: {x: 299, y: 197}
+  - nodeID: 63737bfb-b7f1-46c2-8453-d1d25a2c6212
+    dialogueTxt: "\u2026"
+    dialogueKey: 000
+    position: {x: 772, y: 362}
+  - nodeID: 27632734-a6ad-48d9-8bc4-b67c7ea6e5f0
+    dialogueTxt: End
+    dialogueKey: 000
+    position: {x: 2476, y: 237}
+  - nodeID: a7fa3e84-152f-4771-8e5d-9c965980c1f8
+    dialogueTxt: "\u2026"
+    dialogueKey: 004
+    position: {x: 1372, y: -77}
+  - nodeID: eee3b16f-fa10-4daf-8ca8-47d5a33a8eef
+    dialogueTxt: "\u2026"
+    dialogueKey: 004
+    position: {x: 1335, y: 442}
+  - nodeID: dfb0865b-1c64-4dd3-9b21-3359db613b5f
+    dialogueTxt: ...
+    dialogueKey: 000
+    position: {x: 1988, y: 399}
+  - nodeID: d28262d5-4a22-4822-84ce-c12f07aa5d33
+    dialogueTxt: ...
+    dialogueKey: 000
+    position: {x: 2005, y: 8}

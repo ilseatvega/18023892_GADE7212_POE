@@ -3,12 +3,31 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System;
+using UnityEngine.SceneManagement;
 
 public class RealParser : MonoBehaviour
 {
-    Hashtable commands = new Hashtable();
-    Hashtable inv = new Hashtable();
+    //singleton
+    public static RealParser _rp;
+    public static RealParser RP { get { return _rp; } }
 
+    Hashtable commands= new Hashtable();
+    public Hashtable inv = new Hashtable();
+
+    private void Awake()
+    {
+        if (_rp != null && _rp != this)
+        {
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            _rp = this;
+        }
+
+        //blank key to give access to any dialoge that has no key
+        inv.Add(000, "");
+    }
     string[] interpret;
 
     public GameObject inputTxt;
@@ -16,10 +35,14 @@ public class RealParser : MonoBehaviour
     public GameObject inputField;
     public GameObject Arnas;
     public GameObject Depression;
+    public GameObject Player;
     public GameObject Check1;
     public GameObject Check2;
     public GameObject Uncheck1;
     public GameObject Uncheck2;
+
+    public bool check1True = false;
+    public bool check2True = false;
 
     string key;
     string value;
@@ -29,6 +52,7 @@ public class RealParser : MonoBehaviour
     void Start()
     {
         AddCommmands();
+        
     }
 
     // Update is called once per frame
@@ -51,15 +75,17 @@ public class RealParser : MonoBehaviour
             {
                 inputField.SetActive(false);
 
-                Arnas.GetComponent<DialogueTrigger>().enabled = true;
-                Depression.GetComponent<DialogueTrigger>().enabled = true;
+                Arnas.GetComponent<NewDialogueTrigger>().enabled = true;
+                Depression.GetComponent<NewDialogueTrigger>().enabled = true;
+                Player.GetComponent<MonologueTrigger>().enabled = true;
             }
             else if (inputField.active == false)
             {
                 inputField.SetActive(true);
 
-                Arnas.GetComponent<DialogueTrigger>().enabled = false;
-                Depression.GetComponent<DialogueTrigger>().enabled = false;
+                Arnas.GetComponent<NewDialogueTrigger>().enabled = false;
+                Depression.GetComponent<NewDialogueTrigger>().enabled = false;
+                Player.GetComponent<MonologueTrigger>().enabled = false;
             }
         }
 
@@ -146,6 +172,43 @@ public class RealParser : MonoBehaviour
                     inv.Add(003, "tea");
                     outputTxt.GetComponent<Text>().text = value;
                 }
+                else if (key == "pick up photo ")
+                {
+                    ToggleUI();
+                    value = commands[key].ToString();
+                    inv.Add(004, "photo");
+                    outputTxt.GetComponent<Text>().text = value;
+                }
+                else if (key == "pick up remote " || key == "pick up tv remote ")
+                {
+                    ToggleUI();
+                    value = commands[key].ToString();
+                    inv.Add(005, "remote");
+                    outputTxt.GetComponent<Text>().text = value;
+                }
+                else if (key == "pick up album " || key == "pick up photo album ")
+                {
+                    ToggleUI();
+                    value = commands[key].ToString();
+                    inv.Add(006, "photo album");
+                    outputTxt.GetComponent<Text>().text = value;
+                }
+                else if (key == "pick up dirty clothes " || key == "pick up clothes ")
+                {
+                    ToggleUI();
+                    value = commands[key].ToString();
+                    inv.Add(007, "clothes");
+                    outputTxt.GetComponent<Text>().text = value;
+                    ToggleCheck1();
+                }
+                else if (key == "pick up dishes " || key == "pick up dirty dishes ")
+                {
+                    ToggleUI();
+                    value = commands[key].ToString();
+                    inv.Add(008, "dishes");
+                    outputTxt.GetComponent<Text>().text = value;
+                    ToggleCheck2();
+                }
                 else
                 {
                     ToggleUI();
@@ -169,8 +232,8 @@ public class RealParser : MonoBehaviour
                     ToggleUI();
                     value = commands[key].ToString();
                     outputTxt.GetComponent<Text>().text = value;
-                    Uncheck1.SetActive(false);
-                    Check1.SetActive(true);
+                    ToggleCheck1();
+                    inv.Remove(001);
                 }
                 else if (inv.ContainsKey(002) && key == "use milk on kettle ")
                 {
@@ -189,8 +252,17 @@ public class RealParser : MonoBehaviour
                     ToggleUI();
                     value = commands[key].ToString();
                     outputTxt.GetComponent<Text>().text = value;
-                    Uncheck2.SetActive(false);
-                    Check2.SetActive(true);
+                    ToggleCheck2();
+                    inv.Remove(002);
+                    inv.Remove(003);
+                }
+                else if (inv.ContainsKey(005) && key == "use remote on tv " || key == "use tv remote on tv ")
+                {
+                    ToggleUI();
+                    value = commands[key].ToString();
+                    outputTxt.GetComponent<Text>().text = value;
+                    ToggleCheck2();
+                    inv.Remove(005);
                 }
                 else
                 {
@@ -221,21 +293,65 @@ public class RealParser : MonoBehaviour
     {
         //LOOK AT
         commands.Add("look at kettle ", "I could use this to make some tea.");
-        commands.Add("look at plant ", "I'm surpised it isn't dead yet. I should water it.");
+        commands.Add("look at plant ", "I'm surpised it isn't dead yet.");
         commands.Add("look at stove ", "We never really used the stove.");
         commands.Add("look at cupboard ", "Empty. I haven't gone shopping in weeks.");
         commands.Add("look at fridge ", "Huh, I haven't seen these photos of Arnas and I since...");
         commands.Add("look at microwave ", "Arnas' choice cooking method. Mine too, if i'm honest.");
+        commands.Add("look at photo ", "An old photo of Arnas and I on a beach somewhere... I really do miss him.");
+        //livingroom
+        commands.Add("look at couch ", "My bed's comfier but I think I might sleep on the couch today.");
+        commands.Add("look at box ", "Was this here before?");
+        //bedroom
+        commands.Add("look at bed ", "where i spend most of my time these days. i really am pathetic.");
+        commands.Add("look at drawer ", "This used to belong to Arnas... I can't even bear to look at everything inside it.");
+        commands.Add("look at clothes ", "maybe i should clean these up. or i could just sleep.");
+        commands.Add("look at dishes ", "these have been piling up... but i'm so tired right now.");
+
         //PICK UP
+        //kitchen
         commands.Add("pick up milk ", "Milk has been added to your inventory.");
         commands.Add("pick up jug ", "Jug has been added to your inventory.");
-        commands.Add("pick up tea ", "Tea has been added to  your inventory.");
-        commands.Add("pick up tea and milk ", "Tea has been added to  your inventory.");
-        commands.Add("pick up milk and tea ", "Tea has been added to  your inventory.");
+        commands.Add("pick up tea ", "Tea has been added to your inventory.");
+        commands.Add("pick up tea and milk ", "Tea has been added to your inventory.");
+        commands.Add("pick up milk and tea ", "Tea has been added to your inventory.");
+        commands.Add("pick up photo ", "Photo has been added to your inventory.");
+        //livingroom
+        commands.Add("pick up remote ", "TV Remote has been added to your inventory.");
+        commands.Add("pick up tv remote ", "TV Remote has been added to your inventory.");
+        commands.Add("pick up album ", "Photo Album has been added to your inventory.");
+        commands.Add("pick up photo album ", "Photo Album has been added to your inventory.");
+        //bedroom
+        commands.Add("pick up clothes ", "Dirty Clothes have been added to your inventory.");
+        commands.Add("pick up dirty clothes ", "Dirty Clothes have been added to your inventory.");
+        commands.Add("pick up dirty dishes ", "Dirty Clothes have been added to your inventory.");
+        commands.Add("pick up dishes ", "Dirty Dishes have been added to your inventory.");
+
         //USE
+        //kitchen
         commands.Add("use tea and milk on kettle ", "Alright, maybe this will help me sleep.");
         commands.Add("use milk and tea on kettle ", "Alright, maybe this will help me sleep.");
         commands.Add("use jug on plant ", "Hang in there buddy, it'll get better.");
-        commands.Add("use tea on kettle ", "I think I'm missing something...");        commands.Add("use milk on kettle ", "I think I'm missing something...");
+        commands.Add("use tea on kettle ", "I think I'm missing something...");
+        commands.Add("use milk on kettle ", "I think I'm missing something...");
+        //livingroom
+        commands.Add("use remote on tv ", "Might as well watch some TV. I have nothing better to do.");
+        commands.Add("use tv remote on tv ", "Might as well watch some TV. I have nothing better to do.");
+
+        //MOVING TO NEXT SCENE
+    }
+
+    public void ToggleCheck1()
+    {
+        Uncheck1.SetActive(false);
+        Check1.SetActive(true);
+        check1True = true;
+    }
+
+    public void ToggleCheck2()
+    {
+        Uncheck2.SetActive(false);
+        Check2.SetActive(true);
+        check2True = true;
     }
 }

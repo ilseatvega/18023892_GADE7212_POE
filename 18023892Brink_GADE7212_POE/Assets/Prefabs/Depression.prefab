@@ -11,8 +11,9 @@ GameObject:
   - component: {fileID: 1111456301842857801}
   - component: {fileID: 1933283820109247724}
   - component: {fileID: 6441692685991157004}
-  - component: {fileID: 6542872034285738460}
   - component: {fileID: 4606758219941626005}
+  - component: {fileID: 70707145736812202}
+  - component: {fileID: 3814565838427872668}
   m_Layer: 0
   m_Name: Depression
   m_TagString: Untagged
@@ -105,19 +106,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &6542872034285738460
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6920777781722034912}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e20dbd76aea00f04b8d90d52d751386d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  decisionTime: {x: 1, y: 4}
 --- !u!114 &4606758219941626005
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -125,10 +113,38 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6920777781722034912}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: da94d7486210c5d4c91053b67c8840cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   interactionDist: 2.5
   dialogueFile: 2_Depression
+--- !u!114 &70707145736812202
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6920777781722034912}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41a10c42c3d4e594e9c4f4ca13ae7684, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue: {fileID: 11400000, guid: 263d3ebc95091fd4fb7ce5b1fb9339fd, type: 2}
+  interactionDist: 3
+  playerAnim: {fileID: 0}
+--- !u!114 &3814565838427872668
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6920777781722034912}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2cd3659d77309540abd4e9bcf3cea6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  offset: {x: 3, y: 0, z: 0}

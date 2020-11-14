@@ -10,10 +10,11 @@ using System.Linq;
 
 public class DialogueGV : GraphView
 {
-    //making use of this video for creating a graph view to imlement the graph dialogue
+    //making use of this video for creating a graph view to implement the graph dialogue 
+    //(video is only for making graph, not implementing it into game)
     //https://www.youtube.com/watch?v=7KHGH0fPL84
 
-        //default node size 
+    //default node size 
     public readonly Vector2 defaultNodeSize = new Vector2(150, 200);
 
     //constructor
@@ -76,12 +77,13 @@ public class DialogueGV : GraphView
     }
 
     //basically the same as enry node, but for dialogue so some changes such as multiple ports
-    public DialogueNode CreateDialogueNode(string nodeName)
+    public DialogueNode CreateDialogueNode(string nodeName, string keyOverride = "000")
     {
         var dialogueNode = new DialogueNode
         {
             title = nodeName,
             dialogueText = nodeName,
+            key = keyOverride,
             nodeID = Guid.NewGuid().ToString()
         };
 
@@ -99,6 +101,15 @@ public class DialogueGV : GraphView
         });
         dialText.SetValueWithoutNotify(dialogueNode.title);
         dialogueNode.mainContainer.Add(dialText);
+
+        //adds key input for inv check
+        var keyText = new TextField("Key: ");
+        keyText.RegisterValueChangedCallback(evt =>
+        {
+            dialogueNode.key = evt.newValue;
+        });
+        keyText.SetValueWithoutNotify(dialogueNode.key);
+        dialogueNode.mainContainer.Add(keyText);
 
         //clicking the button to add a new choice port
         var button = new Button(clickEvent: () => { AddChoicePort(dialogueNode); });

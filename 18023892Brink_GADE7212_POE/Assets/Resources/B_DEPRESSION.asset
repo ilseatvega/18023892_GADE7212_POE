@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d3b3dab38db94042a6032d666a689ba, type: 3}
+  m_Name: B_DEPRESSION
+  m_EditorClassIdentifier: 
+  GraphEdges:
+  - firstNodeID: 017c4ff2-001a-49df-9388-832b16ab58c7
+    portName: StartNodeEdge
+    secondNodeID: 852c5273-2ff1-4a3b-ae47-f11631c262bb
+  - firstNodeID: 8e1ad7a7-6998-4ae8-9467-f6ffe4bb5a2a
+    portName: "I will. It\u2019s been a difficult week and I\u2019m trying."
+    secondNodeID: 9251aa92-a2fa-4b01-8829-55cce21b66bb
+  - firstNodeID: 8e1ad7a7-6998-4ae8-9467-f6ffe4bb5a2a
+    portName: "Oh\u2026 I guess you\u2019re right."
+    secondNodeID: 9251aa92-a2fa-4b01-8829-55cce21b66bb
+  - firstNodeID: 852c5273-2ff1-4a3b-ae47-f11631c262bb
+    portName: "I\u2019m trying, okay? I\u2019m really trying."
+    secondNodeID: 9251aa92-a2fa-4b01-8829-55cce21b66bb
+  - firstNodeID: 852c5273-2ff1-4a3b-ae47-f11631c262bb
+    portName: "Well, I\u2019ve done some cleaning up, so maybe."
+    secondNodeID: 8e1ad7a7-6998-4ae8-9467-f6ffe4bb5a2a
+  NodeData:
+  - nodeID: 9251aa92-a2fa-4b01-8829-55cce21b66bb
+    dialogueTxt: End
+    dialogueKey: 000
+    position: {x: 1387, y: 189}
+  - nodeID: 8e1ad7a7-6998-4ae8-9467-f6ffe4bb5a2a
+    dialogueTxt: "Cleaning? That\u2019s normal. You shouldn\u2019t take this as a
+      victory."
+    dialogueKey: 007
+    position: {x: 870, y: 321}
+  - nodeID: 852c5273-2ff1-4a3b-ae47-f11631c262bb
+    dialogueTxt: "Oooooh, I see. You think you can get your life back together? That\u2019s
+      cute."
+    dialogueKey: 000
+    position: {x: 261, y: 197}

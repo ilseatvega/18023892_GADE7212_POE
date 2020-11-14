@@ -18,7 +18,7 @@ public class StartScreen : MonoBehaviour
 
     private System.Random rand = new System.Random();
 
-    
+    public AudioSource button;
 
     private void Start()
     {
@@ -32,24 +32,28 @@ public class StartScreen : MonoBehaviour
 
     void Play()
     {
+        button.Play();
         //load first game scene
         SceneManager.LoadScene(sceneName: "INTRO");
     }
 
     void Commands()
     {
+        button.Play();
         //load commands scene
         SceneManager.LoadScene(sceneName: "CommandsListScene");
     }
 
     void DevScenes()
     {
+        button.Play();
         //load devscenes
         SceneManager.LoadScene(sceneName: "DevScenes");
     }
 
     void Exit()
     {
+        button.Play();
         //quit game
         Application.Quit();
     }

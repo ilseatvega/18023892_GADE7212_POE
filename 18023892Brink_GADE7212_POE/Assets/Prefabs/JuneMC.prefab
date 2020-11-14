@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7694028619218303023}
   - component: {fileID: 6557140784562974951}
   - component: {fileID: 2384952809106310830}
+  - component: {fileID: 6407836691692454722}
   m_Layer: 0
   m_Name: JuneMC
   m_TagString: Player
@@ -160,3 +161,16 @@ MonoBehaviour:
   whatIsGround:
     serializedVersion: 2
     m_Bits: 256
+--- !u!114 &6407836691692454722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 895440497787944775}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5655d786e23554349bdbd0033f8677f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue: {fileID: 11400000, guid: 2e0313dddd92983499462570d9030647, type: 2}

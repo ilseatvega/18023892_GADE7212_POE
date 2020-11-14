@@ -65,11 +65,12 @@ public class GraphSaveLoad
             {
                 nodeID = dialogueNode.nodeID,
                 dialogueTxt = dialogueNode.dialogueText,
+                dialogueKey = dialogueNode.key,
                 position = dialogueNode.GetPosition().position
             });
         }
-        //create and save scriptable object to resources folder under dialogue
-        AssetDatabase.CreateAsset(scriptableDialogue, $"Assets/Scripts/Dialogue/Resources/{fileName}.asset");
+        //create and save scriptable object to resources folder
+        AssetDatabase.CreateAsset(scriptableDialogue, $"Assets/Resources/{fileName}.asset");
         AssetDatabase.SaveAssets();
     }
 
@@ -119,9 +120,11 @@ public class GraphSaveLoad
         foreach (var nodeData in _scCache.NodeData)
         {
             //create new temporary node
-            var loadNode = _targetGV.CreateDialogueNode(nodeData.dialogueTxt);
+            var loadNode = _targetGV.CreateDialogueNode(nodeData.dialogueTxt, nodeData.dialogueKey);
             //change id to save node id
             loadNode.nodeID = nodeData.nodeID;
+            //loads key
+
             //add node to graph view
             _targetGV.AddElement(loadNode);
 

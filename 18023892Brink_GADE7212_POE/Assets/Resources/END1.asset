@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d3b3dab38db94042a6032d666a689ba, type: 3}
+  m_Name: END1
+  m_EditorClassIdentifier: 
+  GraphEdges:
+  - firstNodeID: 50ed6368-d30f-427d-abc3-b69bda2b6428
+    portName: StartNodeEdge
+    secondNodeID: 60ba338b-d9cf-43b6-9744-accda29a4a4f
+  - firstNodeID: 60ba338b-d9cf-43b6-9744-accda29a4a4f
+    portName: "But that doesn\u2019t mean that things won\u2019t get bad again, or
+      that there aren\u2019t other people out there who experience this time in our
+      lives the same way."
+    secondNodeID: 727ecbf2-c511-46f9-8b3d-9aba11c9ab23
+  NodeData:
+  - nodeID: 60ba338b-d9cf-43b6-9744-accda29a4a4f
+    dialogueTxt: 'I think things are getting better.  I feel as though maybe I can
+      have some control over my life again.  '
+    dialogueKey: 000
+    position: {x: 259, y: 198}
+  - nodeID: 727ecbf2-c511-46f9-8b3d-9aba11c9ab23
+    dialogueTxt: End
+    dialogueKey: 000
+    position: {x: 1298, y: 200}

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8224301923860368628}
   - component: {fileID: 1428671474417134426}
   - component: {fileID: 5931709513794118690}
+  - component: {fileID: 1051853613}
   m_Layer: 0
   m_Name: Arnas
   m_TagString: Untagged
@@ -76,8 +77,8 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 9101655955262125474, guid: cf36b48b39d99b347812601ce7732a13,
     type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 1
+  m_Color: {r: 1, g: 1, b: 1, a: 0.60784316}
+  m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 0.32, y: 0.32}
@@ -112,7 +113,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8224301923860368629}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: da94d7486210c5d4c91053b67c8840cd, type: 3}
   m_Name: 
@@ -132,3 +133,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   decisionTime: {x: 1, y: 4}
+  Transparency: 0.7
+  fadeSpeed: 0.3
+--- !u!114 &1051853613
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8224301923860368629}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41a10c42c3d4e594e9c4f4ca13ae7684, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue: {fileID: 11400000, guid: 59f32d425736f3143a99ee35b6d9d9ba, type: 2}
+  interactionDist: 3
+  playerAnim: {fileID: 0}

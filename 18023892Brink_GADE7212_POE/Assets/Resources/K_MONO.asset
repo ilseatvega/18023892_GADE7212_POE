@@ -1,0 +1,52 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d3b3dab38db94042a6032d666a689ba, type: 3}
+  m_Name: K_MONO
+  m_EditorClassIdentifier: 
+  GraphEdges:
+  - firstNodeID: 1a6a93d5-921b-4f67-948c-8fdd4260b040
+    portName: StartNodeEdge
+    secondNodeID: 3f1c092f-e111-4429-97f3-7d371add799d
+  - firstNodeID: 3f1c092f-e111-4429-97f3-7d371add799d
+    portName: Things will get easier right?
+    secondNodeID: bd603f8b-7393-4614-a702-0597e9d877b4
+  - firstNodeID: 7e867939-4107-41a4-87d5-9a2d2795f80a
+    portName: "Aaaand the plant\u2019s looking a little dead too."
+    secondNodeID: eadbf785-305f-4ab1-87dc-bde8f9856cda
+  - firstNodeID: eadbf785-305f-4ab1-87dc-bde8f9856cda
+    portName: I just need milk, tea and the jug for the plant.
+    secondNodeID: 46e9e589-d47b-4f0e-82ff-2143e4fbbc4d
+  - firstNodeID: bd603f8b-7393-4614-a702-0597e9d877b4
+    portName: I should get something to eat, just something small.
+    secondNodeID: 7e867939-4107-41a4-87d5-9a2d2795f80a
+  NodeData:
+  - nodeID: 3f1c092f-e111-4429-97f3-7d371add799d
+    dialogueTxt: Alright, I got out of bed. Baby steps.
+    dialogueKey: 000
+    position: {x: 272, y: 62}
+  - nodeID: bd603f8b-7393-4614-a702-0597e9d877b4
+    dialogueTxt: "\u2026"
+    dialogueKey: 000
+    position: {x: 255, y: 204}
+  - nodeID: 7e867939-4107-41a4-87d5-9a2d2795f80a
+    dialogueTxt: "I can make some tea and have some rusks? I never realised how little
+      food we have left\u2026"
+    dialogueKey: 000
+    position: {x: 152, y: 340}
+  - nodeID: eadbf785-305f-4ab1-87dc-bde8f9856cda
+    dialogueTxt: So make tea and water the plant. Easy. I can do that.
+    dialogueKey: 000
+    position: {x: 248, y: 477}
+  - nodeID: 46e9e589-d47b-4f0e-82ff-2143e4fbbc4d
+    dialogueTxt: End
+    dialogueKey: 000
+    position: {x: 360, y: 612}

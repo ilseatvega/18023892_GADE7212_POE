@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d3b3dab38db94042a6032d666a689ba, type: 3}
+  m_Name: LR_MONO
+  m_EditorClassIdentifier: 
+  GraphEdges:
+  - firstNodeID: 4d387442-e778-4a7f-8655-2fda8779c40e
+    portName: StartNodeEdge
+    secondNodeID: 890f62a5-4176-4a09-9eff-921fba545823
+  - firstNodeID: 7451b3b9-ee97-4e8f-b906-23846e1b1589
+    portName: "At least the lockdown might be lifted in July, although I\u2019m not
+      sure how to feel about that either."
+    secondNodeID: 4da08548-008e-4d58-8539-d73698d48a51
+  - firstNodeID: 4da08548-008e-4d58-8539-d73698d48a51
+    portName: The remote should be around here somewhere.
+    secondNodeID: a70b8b2e-906a-4ff1-b616-32882f16125c
+  - firstNodeID: 890f62a5-4176-4a09-9eff-921fba545823
+    portName: "I think there\u2019s still a part of me that hopes that when I wake
+      up he\u2019ll be back\u2026"
+    secondNodeID: 7451b3b9-ee97-4e8f-b906-23846e1b1589
+  NodeData:
+  - nodeID: 890f62a5-4176-4a09-9eff-921fba545823
+    dialogueTxt: "That was\u2026 strange. But it\u2019s normal right?  I just miss
+      him so much and it hurts so much knowing he isn\u2019t here..."
+    dialogueKey: 000
+    position: {x: 293, y: -9}
+  - nodeID: 7451b3b9-ee97-4e8f-b906-23846e1b1589
+    dialogueTxt: "But obviously he won\u2019t be. He\u2019s gone. I couldn\u2019t
+      even say goodbye, couldn\u2019t visit him at the hospital, couldn\u2019t get
+      him a proper funeral, nothing."
+    dialogueKey: 000
+    position: {x: 281, y: 164}
+  - nodeID: 4da08548-008e-4d58-8539-d73698d48a51
+    dialogueTxt: All I know right now is I just want to watch some tv and sleep.
+    dialogueKey: 000
+    position: {x: 385, y: 327}
+  - nodeID: a70b8b2e-906a-4ff1-b616-32882f16125c
+    dialogueTxt: End
+    dialogueKey: 000
+    position: {x: 466, y: 469}

@@ -21,12 +21,42 @@ EditorBuildSettings:
     path: Assets/Scenes/Prototype/TextParser.unity
     guid: 8ffe3ee54e122fe49a4cbce53e10e264
   - enabled: 1
-    path: Assets/Scenes/GraphPrototype.unity
+    path: Assets/Scenes/Prototype/GraphPrototype.unity
     guid: ba255fd51f8cb9948b901461c356d72c
   - enabled: 1
     path: Assets/Scenes/INTRO.unity
     guid: aca974be5982d7349ab00afbc27b287b
   - enabled: 1
+    path: Assets/Scenes/WAKEUP.unity
+    guid: 40a3936566775d045b8a67c081cea7b5
+  - enabled: 1
     path: Assets/Scenes/KITCHEN.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Scenes/KITCHEN2.unity
+    guid: 5627464172bd5ae4f9d6a9521c22faa6
+  - enabled: 1
+    path: Assets/Scenes/LIVINGROOM.unity
+    guid: 96b325bb99e0fe74a8847084db0ee8dd
+  - enabled: 1
+    path: Assets/Scenes/LRSLEEP.unity
+    guid: 7458f38e7c27fbc4f81992706e42d469
+  - enabled: 1
+    path: Assets/Scenes/LR2.unity
+    guid: 30fc4d3c1c8066b4dbc0f9ee5784cc08
+  - enabled: 1
+    path: Assets/Scenes/BEDROOM.unity
+    guid: 25902423170af6d408d5dedb14d8b5df
+  - enabled: 1
+    path: Assets/Scenes/END2.unity
+    guid: 425745cf342906e48b9a2b0a7b3a743c
+  - enabled: 1
+    path: Assets/Scenes/END1.unity
+    guid: 333cafc64bdf9a947b83f66e38c06d38
+  - enabled: 1
+    path: Assets/Scenes/END1.1.unity
+    guid: 93d8e90466dae3d4982a20e3f1699c66
+  - enabled: 1
+    path: Assets/Scenes/END2.1.unity
+    guid: 17ad6c67d2f571f44acad25f08e99e86
   m_configObjects: {}

@@ -6,7 +6,7 @@ public class NPCMovement : MonoBehaviour
 {
     //basic idea for wandering NPCs taken from
     //https://forum.unity.com/threads/making-npcs-wander-in-2d.524950/
-    
+
     float movespeed = 2f;
     internal Transform thisTransform;
 
@@ -20,6 +20,11 @@ public class NPCMovement : MonoBehaviour
 
     bool facingRight = false;
 
+    [SerializeField]
+    float Transparency;
+    [SerializeField]
+    float fadeSpeed;
+
     //
     void Start()
     {
@@ -28,10 +33,44 @@ public class NPCMovement : MonoBehaviour
         //ChooseMoveDirection();
 
         NPCAnim = GetComponent<Animator>();
+
+        SpriteRenderer SR = this.GetComponent<SpriteRenderer>();
+
+        StartCoroutine(fadeIn(Transparency, fadeSpeed, SR));
     }
 
     //
     private void Update()
+    {
+        if (!NewDialogueManager.DLM.inDialogue)
+        {
+            MoveNPC();
+        }
+    }
+
+    void ChooseMoveDirection()
+    {
+        // Choose whether to move sideways
+        currentMoveDirection = Mathf.FloorToInt(Random.Range(0, moveDirections.Length));
+        if (currentMoveDirection == 1 && !facingRight)
+        {
+            FlipX();
+        }
+        else if (currentMoveDirection == 0 && facingRight)
+        {
+            FlipX();
+        }
+    }
+
+    private void FlipX()
+    {
+        //toggle - thats what the ! does
+        GetComponent<SpriteRenderer>().flipX = !GetComponent<SpriteRenderer>().flipX;
+
+        facingRight = !facingRight;
+    }
+
+    void MoveNPC()
     {
         if (currentMoveDirection == 0 || currentMoveDirection == 1)
         {
@@ -74,25 +113,17 @@ public class NPCMovement : MonoBehaviour
         }
     }
 
-    void ChooseMoveDirection()
+    IEnumerator fadeIn(float finalTrans, float speed, SpriteRenderer SR)
     {
-        // Choose whether to move sideways
-        currentMoveDirection = Mathf.FloorToInt(Random.Range(0, moveDirections.Length));
-        if (currentMoveDirection == 1 && facingRight)
-        {
-            FlipX();
-        }
-        else if (currentMoveDirection == 0 && !facingRight)
-        {
-            FlipX();
-        }
-    }
+        Color colour = new Color(1, 1, 1, 0);
+        SR.color = colour;
 
-    private void FlipX()
-    {
-        //toggle - thats what the ! does
-        GetComponent<SpriteRenderer>().flipX = !GetComponent<SpriteRenderer>().flipX;
+        while (colour.a < finalTrans)
+        {
+            colour.a += speed * Time.deltaTime;
+            SR.color = colour;
 
-        facingRight = !facingRight;
+            yield return new WaitForEndOfFrame();
+        }
     }
 }

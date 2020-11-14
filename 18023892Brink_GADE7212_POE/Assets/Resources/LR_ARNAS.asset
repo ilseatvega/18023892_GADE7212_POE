@@ -1,0 +1,88 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d3b3dab38db94042a6032d666a689ba, type: 3}
+  m_Name: LR_ARNAS
+  m_EditorClassIdentifier: 
+  GraphEdges:
+  - firstNodeID: 28c45fe6-0b19-4c73-8564-74bea406f8ad
+    portName: StartNodeEdge
+    secondNodeID: 6a4e150e-bfae-4f86-b6ab-d14da91a6763
+  - firstNodeID: 6a4e150e-bfae-4f86-b6ab-d14da91a6763
+    portName: "Not again\u2026 "
+    secondNodeID: 8efaa46e-6af9-4f83-a113-7f6969e5d4d4
+  - firstNodeID: 6a4e150e-bfae-4f86-b6ab-d14da91a6763
+    portName: Why do I keep seeing you?
+    secondNodeID: 8db7641d-17d0-4aff-8af1-cf73edf56079
+  - firstNodeID: 8efaa46e-6af9-4f83-a113-7f6969e5d4d4
+    portName: "Oh, right, you can\u2019t talk. I guess I should just go then."
+    secondNodeID: f3c9a6a1-5fa4-441e-bb59-cd889a17f3c6
+  - firstNodeID: 8db7641d-17d0-4aff-8af1-cf73edf56079
+    portName: "Oh, right, you can\u2019t talk. I guess I should just go then."
+    secondNodeID: f3c9a6a1-5fa4-441e-bb59-cd889a17f3c6
+  - firstNodeID: 5fa0bbba-b8f1-46ee-a6f1-a1833155c63e
+    portName: "I don\u2019t even remember packing it. "
+    secondNodeID: db437925-d3b8-46af-b5dd-fd9eeb2bfb33
+  - firstNodeID: 798d758d-b980-4a4e-a840-dd8e858ca6f2
+    portName: "I don\u2019t even remember packing it. "
+    secondNodeID: db437925-d3b8-46af-b5dd-fd9eeb2bfb33
+  - firstNodeID: 5fa0bbba-b8f1-46ee-a6f1-a1833155c63e
+    portName: I should probably store it away for a while.
+    secondNodeID: b1cab891-66bf-43f7-8a78-0965c3a61572
+  - firstNodeID: 798d758d-b980-4a4e-a840-dd8e858ca6f2
+    portName: I should probably store it away for a while.
+    secondNodeID: b1cab891-66bf-43f7-8a78-0965c3a61572
+  - firstNodeID: 8db7641d-17d0-4aff-8af1-cf73edf56079
+    portName: "I found an old album of us in this box\u2026"
+    secondNodeID: 5fa0bbba-b8f1-46ee-a6f1-a1833155c63e
+  - firstNodeID: 8efaa46e-6af9-4f83-a113-7f6969e5d4d4
+    portName: "I found an old album of us in this box\u2026"
+    secondNodeID: 798d758d-b980-4a4e-a840-dd8e858ca6f2
+  - firstNodeID: db437925-d3b8-46af-b5dd-fd9eeb2bfb33
+    portName: "*sigh*\u2026 it\u2019s so hard to relive all these memories now."
+    secondNodeID: f3c9a6a1-5fa4-441e-bb59-cd889a17f3c6
+  - firstNodeID: b1cab891-66bf-43f7-8a78-0965c3a61572
+    portName: "Storing it away would be a good idea\u2026 I just need some time to
+      process everything "
+    secondNodeID: f3c9a6a1-5fa4-441e-bb59-cd889a17f3c6
+  NodeData:
+  - nodeID: 6a4e150e-bfae-4f86-b6ab-d14da91a6763
+    dialogueTxt: ...
+    dialogueKey: 000
+    position: {x: 282, y: 192}
+  - nodeID: 8efaa46e-6af9-4f83-a113-7f6969e5d4d4
+    dialogueTxt: ...
+    dialogueKey: 000
+    position: {x: 683, y: 110}
+  - nodeID: f3c9a6a1-5fa4-441e-bb59-cd889a17f3c6
+    dialogueTxt: End
+    dialogueKey: 000
+    position: {x: 2415, y: 282}
+  - nodeID: 8db7641d-17d0-4aff-8af1-cf73edf56079
+    dialogueTxt: ...
+    dialogueKey: 000
+    position: {x: 665, y: 321}
+  - nodeID: 798d758d-b980-4a4e-a840-dd8e858ca6f2
+    dialogueTxt: ...
+    dialogueKey: 006
+    position: {x: 1224, y: 0}
+  - nodeID: 5fa0bbba-b8f1-46ee-a6f1-a1833155c63e
+    dialogueTxt: ...
+    dialogueKey: 006
+    position: {x: 1230, y: 431}
+  - nodeID: b1cab891-66bf-43f7-8a78-0965c3a61572
+    dialogueTxt: ...
+    dialogueKey: 000
+    position: {x: 1734, y: 66}
+  - nodeID: db437925-d3b8-46af-b5dd-fd9eeb2bfb33
+    dialogueTxt: ...
+    dialogueKey: 000
+    position: {x: 1800, y: 447}

@@ -13,6 +13,8 @@ public class DevScenes : MonoBehaviour
     public Button graphs;
     public Button back;
 
+    public AudioSource button;
+
     [SerializeField]
     private GameObject[] backgrounds;
 
@@ -28,28 +30,34 @@ public class DevScenes : MonoBehaviour
         back.onClick.AddListener(Back);
 
         InvokeRepeating("LoopBG", 5f, 10f);
+
+        button = this.GetComponent<AudioSource>();
     }
 
     void LinkedListButton()
     {
+        button.Play();
         //load first game scene
         SceneManager.LoadScene(sceneName: "Standalone");
     }
 
     void TextParser()
     {
+        button.Play();
         //load first game scene
         SceneManager.LoadScene(sceneName: "TextParser");
     }
 
     void GraphsButton()
     {
+        button.Play();
         //load first game scene
         SceneManager.LoadScene(sceneName: "GraphPrototype");
     }
 
     void Back()
     {
+        button.Play();
         //load first game scene
         SceneManager.LoadScene(sceneName: "START");
     }

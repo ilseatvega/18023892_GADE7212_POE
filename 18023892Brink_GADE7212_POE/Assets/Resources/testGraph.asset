@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d3b3dab38db94042a6032d666a689ba, type: 3}
+  m_Name: testGraph
+  m_EditorClassIdentifier: 
+  GraphEdges:
+  - firstNodeID: 83320343-9c00-49de-9302-d28674506c1d
+    portName: StartNodeEdge
+    secondNodeID: 08a268cf-0db0-4fdf-94bf-f524e533a865
+  - firstNodeID: 08a268cf-0db0-4fdf-94bf-f524e533a865
+    portName: hi!
+    secondNodeID: 9e92bed0-654d-4c6d-9aab-48cae949e3c1
+  - firstNodeID: 08a268cf-0db0-4fdf-94bf-f524e533a865
+    portName: a test?? what for?
+    secondNodeID: 1d584996-8feb-4e49-8ff2-49fcfa85cb00
+  - firstNodeID: 9e92bed0-654d-4c6d-9aab-48cae949e3c1
+    portName: ok, bye!
+    secondNodeID: 9b89bf99-c3dc-486d-a07f-42dc0d4f7be1
+  - firstNodeID: 1d584996-8feb-4e49-8ff2-49fcfa85cb00
+    portName: cool!
+    secondNodeID: 9b89bf99-c3dc-486d-a07f-42dc0d4f7be1
+  NodeData:
+  - nodeID: 08a268cf-0db0-4fdf-94bf-f524e533a865
+    dialogueTxt: Hi there! this is a test.
+    dialogueKey: 000
+    position: {x: 272, y: 186}
+  - nodeID: 9e92bed0-654d-4c6d-9aab-48cae949e3c1
+    dialogueTxt: nice to meet you. bye!
+    dialogueKey: 000
+    position: {x: 563, y: 115}
+  - nodeID: 9b89bf99-c3dc-486d-a07f-42dc0d4f7be1
+    dialogueTxt: End
+    dialogueKey: 000
+    position: {x: 858, y: 205}
+  - nodeID: 1d584996-8feb-4e49-8ff2-49fcfa85cb00
+    dialogueTxt: yup, to test graph structures.
+    dialogueKey: 000
+    position: {x: 543, y: 272}

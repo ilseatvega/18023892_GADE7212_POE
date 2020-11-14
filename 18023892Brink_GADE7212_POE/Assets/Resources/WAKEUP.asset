@@ -1,0 +1,86 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d3b3dab38db94042a6032d666a689ba, type: 3}
+  m_Name: WAKEUP
+  m_EditorClassIdentifier: 
+  GraphEdges:
+  - firstNodeID: 2ff367fe-008f-46a8-aa77-e3dc9eab1b00
+    portName: StartNodeEdge
+    secondNodeID: a626461c-eebd-434b-9b86-e88a3227b3fe
+  - firstNodeID: 72ed631f-cb82-4fc1-836b-ea46a0bcb014
+    portName: "So what if I am? Can\u2019t you just leave me alone?"
+    secondNodeID: 665eefab-b3a8-474c-b693-70af5f2fcd45
+  - firstNodeID: 72ed631f-cb82-4fc1-836b-ea46a0bcb014
+    portName: not today. I can get up, I can do this.
+    secondNodeID: 72794edd-607f-4b17-9c0c-832bbd77c934
+  - firstNodeID: a626461c-eebd-434b-9b86-e88a3227b3fe
+    portName: what do you want?
+    secondNodeID: 72ed631f-cb82-4fc1-836b-ea46a0bcb014
+  - firstNodeID: a626461c-eebd-434b-9b86-e88a3227b3fe
+    portName: "Why can\u2019t you just leave me alone?"
+    secondNodeID: 0681ec8b-c7da-4e09-9151-89ee62de191d
+  - firstNodeID: 0681ec8b-c7da-4e09-9151-89ee62de191d
+    portName: "So what if I am? Can\u2019t you just leave me alone?"
+    secondNodeID: 5d03c91f-643a-4883-94b1-5ee136756537
+  - firstNodeID: 0681ec8b-c7da-4e09-9151-89ee62de191d
+    portName: not today. I can get up, I can do this.
+    secondNodeID: 5dc1b26c-e442-41a8-995e-2ea20a3e8497
+  - firstNodeID: 5dc1b26c-e442-41a8-995e-2ea20a3e8497
+    portName: In case you've forgotten how to get out of your room, you need to walk
+      to the far right side.
+    secondNodeID: 457dee5b-01c1-43cb-a1d5-2660372f247c
+  - firstNodeID: 665eefab-b3a8-474c-b693-70af5f2fcd45
+    portName: Oh, and if you wake up and, for some reason, want to get out of your
+      room, you need to walk to the far right side.
+    secondNodeID: 457dee5b-01c1-43cb-a1d5-2660372f247c
+  - firstNodeID: 5d03c91f-643a-4883-94b1-5ee136756537
+    portName: Oh, and if you wake up and, for some reason, want to get out of your
+      room, you need to walk to the far right side.
+    secondNodeID: 457dee5b-01c1-43cb-a1d5-2660372f247c
+  - firstNodeID: 72794edd-607f-4b17-9c0c-832bbd77c934
+    portName: In case you've forgotten how to get out of your room, you need to walk
+      to the far right side.
+    secondNodeID: 457dee5b-01c1-43cb-a1d5-2660372f247c
+  NodeData:
+  - nodeID: 72ed631f-cb82-4fc1-836b-ea46a0bcb014
+    dialogueTxt: nothing, just trying to figure out if youre gonna stay in bed all
+      day again.
+    dialogueKey: 000
+    position: {x: 681, y: 95}
+  - nodeID: a626461c-eebd-434b-9b86-e88a3227b3fe
+    dialogueTxt: "Ah, look who\u2019s finally awake."
+    dialogueKey: 000
+    position: {x: 293, y: 199}
+  - nodeID: 0681ec8b-c7da-4e09-9151-89ee62de191d
+    dialogueTxt: "I\u2019m bored. You gonna stay in bed all day again?"
+    dialogueKey: 000
+    position: {x: 708, y: 294}
+  - nodeID: 5dc1b26c-e442-41a8-995e-2ea20a3e8497
+    dialogueTxt: "*laughs* alright, I\u2019d like to see you try."
+    dialogueKey: 000
+    position: {x: 1298, y: 530}
+  - nodeID: 665eefab-b3a8-474c-b693-70af5f2fcd45
+    dialogueTxt: Alright, as you wish. Sweet dreams.
+    dialogueKey: 000
+    position: {x: 1411, y: -69}
+  - nodeID: 5d03c91f-643a-4883-94b1-5ee136756537
+    dialogueTxt: Alright, as you wish. Sweet dreams.
+    dialogueKey: 000
+    position: {x: 1323, y: 321}
+  - nodeID: 72794edd-607f-4b17-9c0c-832bbd77c934
+    dialogueTxt: "*laughs* alright, I\u2019d like to see you try."
+    dialogueKey: 000
+    position: {x: 1405, y: 102}
+  - nodeID: 457dee5b-01c1-43cb-a1d5-2660372f247c
+    dialogueTxt: End
+    dialogueKey: 000
+    position: {x: 2368, y: 197}

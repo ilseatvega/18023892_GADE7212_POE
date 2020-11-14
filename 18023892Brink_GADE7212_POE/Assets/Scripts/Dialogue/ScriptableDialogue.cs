@@ -11,16 +11,40 @@ public class ScriptableDialogue : ScriptableObject
 {
     public List<EdgeData> GraphEdges = new List<EdgeData>();
     public List<DialogueNodeData> NodeData = new List<DialogueNodeData>();
+    int totalEdges;
     
     //method to retun all adjacent nodes
-    public List<DialogueNodeData> ReturnOptions(DialogueNodeData current)
+    public List<EdgeData> ReturnValidEdges(DialogueNodeData current)
     {
         List<EdgeData> edges = GraphEdges.Where(x=>x.firstNodeID == current.nodeID).ToList();
         List<DialogueNodeData> nodes = new List<DialogueNodeData>();
+        
+        edges.ForEach(e=>NodeData.Where(n=>n.nodeID == e.secondNodeID && RealParser.RP.inv.ContainsKey(Int32.Parse(n.dialogueKey))).ToList().ForEach(n => nodes.Add(n)));
+        
+        List<EdgeData> validEdges = new List<EdgeData>();
+        nodes.ForEach(n=>edges.Where(e=>e.secondNodeID == n.nodeID).ToList().ForEach(e=>validEdges.Add(e)));
 
-        edges.ForEach(e=>NodeData.Where(n=>n.nodeID == e.secondNodeID).ToList().ForEach(n => nodes.Add(n)));
 
-        return nodes;
+        return validEdges;
+    }
+
+    public DialogueNodeData FindNode(string NodeID)
+    {
+        return NodeData.Where(n=>n.nodeID == NodeID).ToList().First();
+    }
+
+    public int ReturnPotentialEdges(DialogueNodeData current)
+    {
+        List<EdgeData> edges = GraphEdges.Where(x => x.firstNodeID == current.nodeID).ToList();
+        List<DialogueNodeData> nodes = new List<DialogueNodeData>();
+
+        edges.ForEach(e => NodeData.Where(n => n.nodeID == e.secondNodeID).ToList().ForEach(n => nodes.Add(n)));
+
+        List<EdgeData> validEdges = new List<EdgeData>();
+        nodes.ForEach(n => edges.Where(e => e.secondNodeID == n.nodeID).ToList().ForEach(e => validEdges.Add(e)));
+
+        totalEdges = validEdges.Count();
+        return totalEdges;
     }
 
 }
