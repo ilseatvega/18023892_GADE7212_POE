@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9d3b3dab38db94042a6032d666a689ba, type: 3}
-  m_Name: WAKEUP
+  m_Name: WAKINGUP
   m_EditorClassIdentifier: 
   GraphEdges:
   - firstNodeID: 2ff367fe-008f-46a8-aa77-e3dc9eab1b00
@@ -36,19 +36,19 @@ MonoBehaviour:
     secondNodeID: 5dc1b26c-e442-41a8-995e-2ea20a3e8497
   - firstNodeID: 5dc1b26c-e442-41a8-995e-2ea20a3e8497
     portName: In case you've forgotten how to get out of your room, you need to walk
-      to the far right side.
+      to the far left side.
     secondNodeID: 457dee5b-01c1-43cb-a1d5-2660372f247c
   - firstNodeID: 665eefab-b3a8-474c-b693-70af5f2fcd45
     portName: Oh, and if you wake up and, for some reason, want to get out of your
-      room, you need to walk to the far right side.
+      room, you need to walk to the far left side.
     secondNodeID: 457dee5b-01c1-43cb-a1d5-2660372f247c
   - firstNodeID: 5d03c91f-643a-4883-94b1-5ee136756537
     portName: Oh, and if you wake up and, for some reason, want to get out of your
-      room, you need to walk to the far right side.
+      room, you need to walk to the far left side.
     secondNodeID: 457dee5b-01c1-43cb-a1d5-2660372f247c
   - firstNodeID: 72794edd-607f-4b17-9c0c-832bbd77c934
     portName: In case you've forgotten how to get out of your room, you need to walk
-      to the far right side.
+      to the far left side.
     secondNodeID: 457dee5b-01c1-43cb-a1d5-2660372f247c
   NodeData:
   - nodeID: 72ed631f-cb82-4fc1-836b-ea46a0bcb014

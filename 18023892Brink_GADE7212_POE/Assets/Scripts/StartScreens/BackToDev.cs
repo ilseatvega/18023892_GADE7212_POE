@@ -14,10 +14,16 @@ public class BackToDev : MonoBehaviour
     void Start()
     {
         back.onClick.AddListener(Back);
+        button = GetComponent<AudioSource>();
     }
 
     void Back()
     {
+        //DontDestroyOnLoad(gameObject);
+        if (button.isPlaying) return;
+        {
+            button.Play();
+        }
         //load dev game scenes
         SceneManager.LoadScene(sceneName: "DevScenes");
     }

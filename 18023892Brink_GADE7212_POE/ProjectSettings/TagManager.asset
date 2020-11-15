@@ -8,6 +8,9 @@ TagManager:
   - Arnas
   - Dialogue
   - GameManager
+  - Music
+  - BGMusic
+  - ENDMusic
   layers:
   - Default
   - TransparentFX

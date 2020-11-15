@@ -22,45 +22,62 @@ public class StartScreen : MonoBehaviour
 
     private void Start()
     {
+        DontDestroyOnLoad(gameObject);
+
+        button = GetComponent<AudioSource>();
+
         start.onClick.AddListener(Play);
         commands.onClick.AddListener(Commands);
         devScenes.onClick.AddListener(DevScenes);
         exit.onClick.AddListener(Exit);
+
+        //NewDialogueManager.DLM.dialogueEnd = false;
 
         InvokeRepeating("LoopBG", 5f, 10f);
     }
 
     void Play()
     {
-        button.Play();
+        if (button.isPlaying) return;
+        {
+            button.Play();
+        }
         //load first game scene
         SceneManager.LoadScene(sceneName: "INTRO");
     }
 
     void Commands()
     {
-        button.Play();
+        if (button.isPlaying) return;
+        {
+            button.Play();
+        }
         //load commands scene
         SceneManager.LoadScene(sceneName: "CommandsListScene");
     }
 
     void DevScenes()
     {
-        button.Play();
+        if (button.isPlaying) return;
+        {
+            button.Play();
+        }
         //load devscenes
         SceneManager.LoadScene(sceneName: "DevScenes");
     }
 
     void Exit()
     {
-        button.Play();
+        if (button.isPlaying) return;
+        {
+            button.Play();
+        }
         //quit game
         Application.Quit();
     }
 
     public void LoopBG()
     {
-
         int random = rand.Next(0, 3);
         Debug.Log(random);
 

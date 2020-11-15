@@ -14,6 +14,8 @@ public class RealParser : MonoBehaviour
     Hashtable commands= new Hashtable();
     public Hashtable inv = new Hashtable();
 
+    private AudioSource pickUp;
+
     private void Awake()
     {
         if (_rp != null && _rp != this)
@@ -27,6 +29,8 @@ public class RealParser : MonoBehaviour
 
         //blank key to give access to any dialoge that has no key
         inv.Add(000, "");
+
+        pickUp = GetComponent<AudioSource>();
     }
     string[] interpret;
 
@@ -149,6 +153,10 @@ public class RealParser : MonoBehaviour
                     value = commands[key].ToString();
                     inv.Add(001, "jug");
                     outputTxt.GetComponent<Text>().text = value;
+                    if (pickUp.isPlaying) return;
+                    {
+                        pickUp.Play();
+                    }
                 }
                 else if (key == "pick up milk ")
                 {
@@ -156,6 +164,10 @@ public class RealParser : MonoBehaviour
                     value = commands[key].ToString();
                     inv.Add(002, "milk");
                     outputTxt.GetComponent<Text>().text = value;
+                    if (pickUp.isPlaying) return;
+                    {
+                        pickUp.Play();
+                    }
                 }
                 else if (key == "pick up tea ")
                 {
@@ -163,14 +175,22 @@ public class RealParser : MonoBehaviour
                     value = commands[key].ToString();
                     inv.Add(003, "tea");
                     outputTxt.GetComponent<Text>().text = value;
+                    if (pickUp.isPlaying) return;
+                    {
+                        pickUp.Play();
+                    }
                 }
-                else if (key == "pick up milk and tea " || key == "pick up milk and tea ")
+                else if (key == "pick up milk and tea " || key == "pick up tea and milk ")
                 {
                     ToggleUI();
                     value = commands[key].ToString();
                     inv.Add(002, "milk");
                     inv.Add(003, "tea");
                     outputTxt.GetComponent<Text>().text = value;
+                    if (pickUp.isPlaying) return;
+                    {
+                        pickUp.Play();
+                    }
                 }
                 else if (key == "pick up photo ")
                 {
@@ -178,6 +198,10 @@ public class RealParser : MonoBehaviour
                     value = commands[key].ToString();
                     inv.Add(004, "photo");
                     outputTxt.GetComponent<Text>().text = value;
+                    if (pickUp.isPlaying) return;
+                    {
+                        pickUp.Play();
+                    }
                 }
                 else if (key == "pick up remote " || key == "pick up tv remote ")
                 {
@@ -185,6 +209,10 @@ public class RealParser : MonoBehaviour
                     value = commands[key].ToString();
                     inv.Add(005, "remote");
                     outputTxt.GetComponent<Text>().text = value;
+                    if (pickUp.isPlaying) return;
+                    {
+                        pickUp.Play();
+                    }
                 }
                 else if (key == "pick up album " || key == "pick up photo album ")
                 {
@@ -192,6 +220,10 @@ public class RealParser : MonoBehaviour
                     value = commands[key].ToString();
                     inv.Add(006, "photo album");
                     outputTxt.GetComponent<Text>().text = value;
+                    if (pickUp.isPlaying) return;
+                    {
+                        pickUp.Play();
+                    }
                 }
                 else if (key == "pick up dirty clothes " || key == "pick up clothes ")
                 {
@@ -200,6 +232,10 @@ public class RealParser : MonoBehaviour
                     inv.Add(007, "clothes");
                     outputTxt.GetComponent<Text>().text = value;
                     ToggleCheck1();
+                    if (pickUp.isPlaying) return;
+                    {
+                        pickUp.Play();
+                    }
                 }
                 else if (key == "pick up dishes " || key == "pick up dirty dishes ")
                 {
@@ -208,6 +244,10 @@ public class RealParser : MonoBehaviour
                     inv.Add(008, "dishes");
                     outputTxt.GetComponent<Text>().text = value;
                     ToggleCheck2();
+                    if (pickUp.isPlaying) return;
+                    {
+                        pickUp.Play();
+                    }
                 }
                 else
                 {

@@ -8,6 +8,8 @@ using UnityEngine.SceneManagement;
 
 public class NewDialogueTrigger : MonoBehaviour
 {
+    private AudioSource typeSound;
+
     [SerializeField]
     public ScriptableDialogue dialogue;
 
@@ -22,6 +24,11 @@ public class NewDialogueTrigger : MonoBehaviour
     Animator playerAnim;
 
     private bool enable = false;
+
+    private void Awake()
+    {
+        typeSound = GetComponent<AudioSource>();
+    }
 
     private void Start()
     {
@@ -57,10 +64,15 @@ public class NewDialogueTrigger : MonoBehaviour
         if (NewDialogueManager.DLM.inDialogue)
         {
             playerAnim.SetBool("Talk", true);
+            if (typeSound.isPlaying) return;
+            {
+                typeSound.Play();
+            }
         }
         else if (!NewDialogueManager.DLM.inDialogue)
         {
             playerAnim.SetBool("Talk", false);
+            typeSound.Stop();
         }
     }
 

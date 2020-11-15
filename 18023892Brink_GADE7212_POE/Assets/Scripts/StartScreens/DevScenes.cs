@@ -24,6 +24,8 @@ public class DevScenes : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        DontDestroyOnLoad(gameObject);
+
         linkedList.onClick.AddListener(LinkedListButton);
         textParser.onClick.AddListener(TextParser);
         graphs.onClick.AddListener(GraphsButton);
@@ -31,33 +33,45 @@ public class DevScenes : MonoBehaviour
 
         InvokeRepeating("LoopBG", 5f, 10f);
 
-        button = this.GetComponent<AudioSource>();
+        button = GetComponent<AudioSource>();
     }
 
     void LinkedListButton()
     {
-        button.Play();
+        if (button.isPlaying) return;
+        {
+            button.Play();
+        }
         //load first game scene
         SceneManager.LoadScene(sceneName: "Standalone");
     }
 
     void TextParser()
     {
-        button.Play();
+        if (button.isPlaying) return;
+        {
+            button.Play();
+        }
         //load first game scene
         SceneManager.LoadScene(sceneName: "TextParser");
     }
 
     void GraphsButton()
     {
-        button.Play();
+        if (button.isPlaying) return;
+        {
+            button.Play();
+        }
         //load first game scene
         SceneManager.LoadScene(sceneName: "GraphPrototype");
     }
 
     void Back()
     {
-        button.Play();
+        if (button.isPlaying) return;
+        {
+            button.Play();
+        }
         //load first game scene
         SceneManager.LoadScene(sceneName: "START");
     }

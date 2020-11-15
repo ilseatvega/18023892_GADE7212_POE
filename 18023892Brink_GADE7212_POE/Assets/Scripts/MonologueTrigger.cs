@@ -5,14 +5,24 @@ using UnityEngine.SceneManagement;
 
 public class MonologueTrigger : MonoBehaviour
 {
+    private AudioSource typeSound;
+
     [SerializeField]
     public ScriptableDialogue dialogue;
 
     private Animator playerAnim;
+
+    private void Awake()
+    {
+        typeSound = GetComponent<AudioSource>();
+    }
+
     private void Start()
     {
         playerAnim = GetComponent<Animator>();
+        NewDialogueManager.DLM.dialogueEnd = false;
     }
+
     // Update is called once per frame
     void Update()
     {
@@ -24,15 +34,20 @@ public class MonologueTrigger : MonoBehaviour
         if (NewDialogueManager.DLM.inDialogue)
         {
             playerAnim.SetBool("Talk", true);
+            if (typeSound.isPlaying) return;
+            {
+                typeSound.Play();
+            }
         }
         else if (!NewDialogueManager.DLM.inDialogue)
         {
             playerAnim.SetBool("Talk", false);
+            typeSound.Stop();
         }
 
 
         //if intro scene
-        if (NewDialogueManager.DLM.dialogueEnd && Input.GetMouseButtonDown(0) && 
+        if (NewDialogueManager.DLM.dialogueEnd && 
             SceneManager.GetActiveScene() == SceneManager.GetSceneByName("INTRO"))
         {
             SceneManager.LoadScene(sceneName: "WAKEUP");
@@ -40,7 +55,7 @@ public class MonologueTrigger : MonoBehaviour
 
 
         //if kitchen 1 scene
-        if (NewDialogueManager.DLM.dialogueEnd && Input.GetMouseButtonDown(0) && 
+        if (NewDialogueManager.DLM.dialogueEnd && 
             SceneManager.GetActiveScene() == SceneManager.GetSceneByName("KITCHEN") &&
             RealParser.RP.check1True &&
             RealParser.RP.check2True)
@@ -56,7 +71,7 @@ public class MonologueTrigger : MonoBehaviour
         }
 
         //if livingroom mono & done tasks
-        if (NewDialogueManager.DLM.dialogueEnd && Input.GetMouseButtonDown(0) &&
+        if (NewDialogueManager.DLM.dialogueEnd &&
             SceneManager.GetActiveScene() == SceneManager.GetSceneByName("LIVINGROOM") &&
             RealParser.RP.check1True &&
             RealParser.RP.check2True)
@@ -65,7 +80,7 @@ public class MonologueTrigger : MonoBehaviour
         }
 
         //if end1
-        if (NewDialogueManager.DLM.dialogueEnd && Input.GetMouseButtonDown(0) &&
+        if (NewDialogueManager.DLM.dialogueEnd &&
             SceneManager.GetActiveScene() == SceneManager.GetSceneByName("END1"))
         {
             SceneManager.LoadScene(sceneName: "END1.1");
